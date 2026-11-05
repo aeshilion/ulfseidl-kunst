@@ -9,6 +9,7 @@
 #   bereich  malerei | grafik  (welche Kachel/Unterseite)
 #   platz    auswahl | zeitreise  (auswahl = große Einzelwerke auf der Startseite, zeitreise = Band unten)
 #   bilder   Dateinamen in static/werke/, in der Reihenfolge, wie sie nebeneinander hängen
+#   ganz     optional: ganz: true = Bild nie zuschneiden (für sehr schmale Hochformate)
 #   alt      Bildbeschreibung für Blinde und Suchmaschinen (kurz, was man sieht)
 #
 # Reihenfolge in dieser Datei = Reihenfolge auf der Seite.
@@ -138,6 +139,8 @@ werke:
     technik: "Öl auf Leinwand"
     bereich: malerei
     platz: zeitreise
+    masse: "12,1 × 46,3 cm"
+    ganz: true
     bilder: [schrei.jpg]
     alt: "Gemälde Der Schrei"
   - id: makrelen
