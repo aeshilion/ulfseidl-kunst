@@ -25,4 +25,5 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 
 ## Online
 `main` → GitHub Actions (`.github/workflows/hugo.yml`) → GitHub Pages, nach etwa einer Minute.
-Domain ulfseidl.at hängt noch an der alten WordPress-Seite (Umzug offen).
+Die Seite läuft seit 05.11.2026 unter https://ulfseidl.at (umgestellt, erledigt). Gemergt auf `main` = nach etwa einer Minute live auf ulfseidl.at.
+Domain und DNS verwaltet Emanuel, nicht Ulf: nie nach dem Domain-Anbieter oder Zugangsdaten fragen.
