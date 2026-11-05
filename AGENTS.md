@@ -11,6 +11,8 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 - Startseite: Startbild (Jeansjacke) → Kacheln Malerei/Grafik → J. C. Superstar → Einzelwerke (`platz: auswahl`)
   → Mazar-i-Sharif → Zeitreise-Band (`platz: zeitreise`). Unterseiten `/malerei/` und `/grafik/` zeigen alles mit `bereich`.
 - Aussehen: `assets/css/seite.css` (Nachtgalerie: dunkel, Bodoni, Kugelschreiber-Blau `#8ea2ec`).
+- **Neue Bilder** lädt Ulf auf GitHub in `eingang/` hoch. Ablauf: Skill `neue-bilder` (`.claude/skills/`). Zurücknehmen: Skill `rueckgaengig`.
+- Ulfs Kurzanleitung: `anleitung/kurzanleitung.html` (+ PDF).
 - Rechtliches: `content/impressum.md`, `content/datenschutz.md`, `content/kontakt.md`.
 
 ## Feste Regeln
@@ -18,7 +20,7 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 2. **Nichts von fremden Servern laden**: keine Google Fonts, kein Analytics, keine eingebetteten Videos, keine Cookies.
    Sonst stimmt die Datenschutzerklärung nicht mehr.
 3. Impressum und Datenschutz nur ändern, wenn Ulf es ausdrücklich sagt.
-4. Neues Bild: verkleinern (z. B. `sips -Z 1400 bild.jpg`), Dateiname klein, ohne Leerzeichen und Umlaute.
+4. Neues Bild: verkleinern (längste Seite 1600 px, Pillow oder ImageMagick), Dateiname klein, ohne Leerzeichen und Umlaute.
 5. Jedes Bild braucht einen `alt`-Text: kurz, was man sieht.
 6. Vor dem Abschluss bauen: `hugo --gc --minify` muss ohne Fehler durchlaufen.
 7. Änderungen als Pull Request vorschlagen, nicht direkt auf `main`. Wer `main` bekommt, ist sofort online.
