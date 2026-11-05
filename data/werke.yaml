@@ -54,7 +54,6 @@ werke:
     platz: auswahl
     bilder: [wolken.jpg]
     alt: "Helle Wolken vor blauem Himmel"
-
   - id: stephansdom
     titel: "Stephansdom im Haas-Haus"
     jahr: "1991"
@@ -64,6 +63,42 @@ werke:
     platz: auswahl
     bilder: [stephansdom.jpg]
     alt: "Der Stephansdom spiegelt sich in der Glasfassade des Haas-Hauses"
+  - id: makrelen
+    titel: "Makrelen"
+    jahr: "2021"
+    technik: "Öl"
+    masse: "44 × 37,5 cm"
+    bereich: malerei
+    platz: auswahl
+    bilder: [makrelen.jpg]
+    alt: "Makrelen"
+  - id: linolschnitt-4-farben-i-1973
+    titel: "Linolschnitt, 4 Farben I"
+    jahr: "1973"
+    technik: "Linolschnitt"
+    masse: "48 × 21 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [linolschnitt-4-farben-i-1973.jpg]
+    alt: "Linolschnitt „Linolschnitt, 4 Farben I“, 1973"
+  - id: linolschnitt-4-farben-ii-1973
+    titel: "Linolschnitt, 4 Farben II"
+    jahr: "1973"
+    technik: "Linolschnitt"
+    masse: "48 × 21 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [linolschnitt-4-farben-ii-1973.jpg]
+    alt: "Linolschnitt „Linolschnitt, 4 Farben II“, 1973"
+  - id: aecker-1973
+    titel: "Äcker"
+    jahr: "1973"
+    technik: "Lithographie"
+    masse: "34 × 25 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [aecker-1973.jpg]
+    alt: "Lithographie „Äcker“, 1973"
   - id: autowrack
     titel: "Autowrack"
     jahr: "1974"
@@ -72,6 +107,40 @@ werke:
     platz: zeitreise
     bilder: [autowrack.jpg]
     alt: "Ein altes Auto in Rotbraun"
+  - id: waldrand-1974
+    titel: "Waldrand"
+    jahr: "1974"
+    technik: "Linolschnitt"
+    masse: "19 × 16 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [waldrand-1974.jpg]
+    alt: "Linolschnitt „Waldrand“, 1974"
+  - id: zeichnung-bleistift-1975
+    titel: "Zeichnung, Bleistift"
+    jahr: "1975"
+    technik: "Zeichnung, Bleistift"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [zeichnung-bleistift-1975.jpg]
+    alt: "Zeichnung, Bleistift, 1975"
+  - id: zeichnung-bleistift-1975-2
+    titel: "Zeichnung, Bleistift"
+    jahr: "1975"
+    technik: "Zeichnung, Bleistift"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [zeichnung-bleistift-1975-2.jpg]
+    alt: "Zeichnung, Bleistift, 1975"
+  - id: stillleben-1975
+    titel: "Stillleben"
+    jahr: "1975"
+    technik: "Öl"
+    masse: "54,5 × 33,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [stillleben-1975.jpg]
+    alt: "Öl „Stillleben“, 1975"
   - id: triptychon
     titel: "Triptychon Abend · Mittag · Morgen"
     jahr: "1978–80"
@@ -81,6 +150,23 @@ werke:
     platz: zeitreise
     bilder: [abend.jpg, mittag.jpg, morgen.jpg]
     alt: "Drei gerahmte Tafeln: liegende Figur, Taube über Tuch, Meer"
+  - id: waste-1978
+    titel: "Waste"
+    jahr: "1978"
+    technik: "Öl"
+    masse: "72 × 50,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [waste-1978.jpg]
+    alt: "Öl „Waste“, 1978"
+  - id: herbst-in-peking-1979
+    titel: "Herbst in Peking"
+    jahr: "1979"
+    masse: "26 × 38 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [herbst-in-peking-1979.jpg]
+    alt: "Herbst in Peking, 1979"
   - id: arma1
     titel: "Arma virumque cano I"
     jahr: "1981–82"
@@ -90,6 +176,87 @@ werke:
     platz: zeitreise
     bilder: [arma1.jpg]
     alt: "Reiter und Pferde unter einem feurigen Himmel"
+  - id: touaregfrauen-1982
+    titel: "Touaregfrauen"
+    jahr: "1982"
+    technik: "Öl"
+    masse: "102 × 68 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [touaregfrauen-1982.jpg]
+    alt: "Öl „Touaregfrauen“, 1982"
+  - id: im-dickicht-1982
+    titel: "Im Dickicht"
+    jahr: "1982"
+    technik: "Aquarell"
+    masse: "25,6 × 36,9 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [im-dickicht-1982.jpg]
+    alt: "Aquarell „Im Dickicht“, 1982"
+  - id: dynamisches-stillleben-1984
+    titel: "Dynamisches Stillleben"
+    jahr: "1984"
+    technik: "Öl"
+    masse: "51 × 71 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [dynamisches-stillleben-1984.jpg]
+    alt: "Öl „Dynamisches Stillleben“, 1984"
+  - id: schilf-1984
+    titel: "Schilf"
+    jahr: "1984"
+    technik: "Aquarell"
+    masse: "26,7 × 36,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [schilf-1984.jpg]
+    alt: "Aquarell „Schilf“, 1984"
+  - id: birkenreihe-1985
+    titel: "Birkenreihe"
+    jahr: "1985"
+    technik: "Aquarell"
+    masse: "36,3 × 26 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [birkenreihe-1985.jpg]
+    alt: "Aquarell „Birkenreihe“, 1985"
+  - id: buchenwald-im-herbst-1985
+    titel: "Buchenwald im Herbst"
+    jahr: "1985"
+    technik: "Aquarell"
+    masse: "26,1 × 37 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [buchenwald-im-herbst-1985.jpg]
+    alt: "Aquarell „Buchenwald im Herbst“, 1985"
+  - id: herbstwiese-1985
+    titel: "Herbstwiese"
+    jahr: "1985"
+    technik: "Aquarell"
+    masse: "38,5 × 26,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [herbstwiese-1985.jpg]
+    alt: "Aquarell „Herbstwiese“, 1985"
+  - id: undurchdringlich-1985
+    titel: "Undurchdringlich"
+    jahr: "1985"
+    technik: "Aquarell"
+    masse: "27 × 36,9 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [undurchdringlich-1985.jpg]
+    alt: "Aquarell „Undurchdringlich“, 1985"
+  - id: waldboeschung-1986
+    titel: "Waldböschung"
+    jahr: "1986"
+    technik: "Aquarell"
+    masse: "26,6 × 37,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [waldboeschung-1986.jpg]
+    alt: "Aquarell „Waldböschung“, 1986"
   - id: kornfeld
     titel: "Kornfeld im Gegenlicht"
     jahr: "1987"
@@ -99,6 +266,257 @@ werke:
     platz: zeitreise
     bilder: [kornfeld.jpg]
     alt: "Goldgelbes Kornfeld"
+  - id: getreide-unter-heisser-augustsonne-1987
+    titel: "Getreide unter heißer Augustsonne"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "38,1 × 26,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [getreide-unter-heisser-augustsonne-1987.jpg]
+    alt: "Aquarell „Getreide unter heißer Augustsonne“, 1987"
+  - id: graeser-im-spaetherbst-1987
+    titel: "Gräser im Spätherbst"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "38,7 × 27 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [graeser-im-spaetherbst-1987.jpg]
+    alt: "Aquarell „Gräser im Spätherbst“, 1987"
+  - id: graeser-1987
+    titel: "Gräser"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "26,8 × 37,9 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [graeser-1987.jpg]
+    alt: "Aquarell „Gräser“, 1987"
+  - id: rauhreif-1987
+    titel: "Rauhreif"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "37,5 × 26,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [rauhreif-1987.jpg]
+    alt: "Aquarell „Rauhreif“, 1987"
+  - id: rauhreif-ii-1987
+    titel: "Rauhreif II"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "38,2 × 27,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [rauhreif-ii-1987.jpg]
+    alt: "Aquarell „Rauhreif II“, 1987"
+  - id: weinstoecke-in-gumpoldskirchen-1987
+    titel: "Weinstöcke in Gumpoldskirchen"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "45,6 × 30,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [weinstoecke-in-gumpoldskirchen-1987.jpg]
+    alt: "Aquarell „Weinstöcke in Gumpoldskirchen“, 1987"
+  - id: wind-in-den-graesern-1987
+    titel: "Wind in den Gräsern"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "44,7 × 30 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [wind-in-den-graesern-1987.jpg]
+    alt: "Aquarell „Wind in den Gräsern“, 1987"
+  - id: gruengelber-tag-1987
+    titel: "Grüngelber Tag"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "37,7 × 26,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [gruengelber-tag-1987.jpg]
+    alt: "Aquarell „Grüngelber Tag“, 1987"
+  - id: im-prater-1987
+    titel: "Im Prater"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "38 × 26,9 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [im-prater-1987.jpg]
+    alt: "Aquarell „Im Prater“, 1987"
+  - id: wogende-aehren-1987
+    titel: "Wogende Ähren"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "37,7 × 26,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [wogende-aehren-1987.jpg]
+    alt: "Aquarell „Wogende Ähren“, 1987"
+  - id: birkenallee-1988
+    titel: "Birkenallee"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "37,8 × 26,8 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [birkenallee-1988.jpg]
+    alt: "Aquarell „Birkenallee“, 1988"
+  - id: grasboeschung-1988
+    titel: "Grasböschung"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "26,8 × 38 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [grasboeschung-1988.jpg]
+    alt: "Aquarell „Grasböschung“, 1988"
+  - id: spiegelung-1988
+    titel: "Spiegelung"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "26,5 × 36,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [spiegelung-1988.jpg]
+    alt: "Aquarell „Spiegelung“, 1988"
+  - id: spiegelung-1988-2
+    titel: "Spiegelung"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "37,6 × 26,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [spiegelung-1988-2.jpg]
+    alt: "Aquarell „Spiegelung“, 1988"
+  - id: weinstoecke-1988
+    titel: "Weinstöcke"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "38,8 × 26,8 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [weinstoecke-1988.jpg]
+    alt: "Aquarell „Weinstöcke“, 1988"
+  - id: weinstoecke-im-gegenlicht-1988
+    titel: "Weinstöcke im Gegenlicht"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "38 × 26,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [weinstoecke-im-gegenlicht-1988.jpg]
+    alt: "Aquarell „Weinstöcke im Gegenlicht“, 1988"
+  - id: weinstoecke-in-donnerskirchen-1988
+    titel: "Weinstöcke in Donnerskirchen"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "37,9 × 26,6 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [weinstoecke-in-donnerskirchen-1988.jpg]
+    alt: "Aquarell „Weinstöcke in Donnerskirchen“, 1988"
+  - id: bei-rechnitz-1988
+    titel: "Bei Rechnitz"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "37,7 × 26,1 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [bei-rechnitz-1988.jpg]
+    alt: "Aquarell „Bei Rechnitz“, 1988"
+  - id: im-weingebirge-rechnitz-1988
+    titel: "Im Weingebirge Rechnitz"
+    jahr: "1988"
+    technik: "Aquarell"
+    masse: "38 × 26,1 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [im-weingebirge-rechnitz-1988.jpg]
+    alt: "Aquarell „Im Weingebirge Rechnitz“, 1988"
+  - id: spiegelung-um-1988
+    titel: "Spiegelung"
+    jahr: "um 1988"
+    technik: "Ölkreide"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [spiegelung-um-1988.jpg]
+    alt: "Ölkreide „Spiegelung“, um 1988"
+  - id: griechenland-1989
+    titel: "Griechenland"
+    jahr: "1989"
+    technik: "Aquarell"
+    masse: "38,2 × 27 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [griechenland-1989.jpg]
+    alt: "Aquarell „Griechenland“, 1989"
+  - id: blick-von-meinem-atelier-1990
+    titel: "Blick von meinem Atelier"
+    jahr: "1990"
+    technik: "Aquarell"
+    masse: "27,4 × 38,4 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [blick-von-meinem-atelier-1990.jpg]
+    alt: "Aquarell „Blick von meinem Atelier“, 1990"
+  - id: dachlandschaft-1990
+    titel: "Dachlandschaft"
+    jahr: "1990"
+    technik: "Aquarell"
+    masse: "27,2 × 38,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [dachlandschaft-1990.jpg]
+    alt: "Aquarell „Dachlandschaft“, 1990"
+  - id: graf-starhemberggasse-1990
+    titel: "Graf Starhemberggasse"
+    jahr: "1990"
+    technik: "Aquarell"
+    masse: "27,2 × 38,4 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [graf-starhemberggasse-1990.jpg]
+    alt: "Aquarell „Graf Starhemberggasse“, 1990"
+  - id: haas-haus-i-1990
+    titel: "Haas-Haus I"
+    jahr: "1990"
+    technik: "Aquarell"
+    masse: "27 × 39 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [haas-haus-i-1990.jpg]
+    alt: "Aquarell „Haas-Haus I“, 1990"
+  - id: praterallee-1990
+    titel: "Praterallee"
+    jahr: "1990"
+    technik: "Aquarell"
+    masse: "38,3 × 27,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [praterallee-1990.jpg]
+    alt: "Aquarell „Praterallee“, 1990"
+  - id: spiegelung-1990
+    titel: "Spiegelung"
+    jahr: "1990"
+    technik: "Aquarell"
+    masse: "15 × 15 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [spiegelung-1990.jpg]
+    alt: "Aquarell „Spiegelung“, 1990"
+  - id: waldrand-mit-birken-1990
+    titel: "Waldrand mit Birken"
+    jahr: "1990"
+    technik: "Aquarell"
+    masse: "28 × 39 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [waldrand-mit-birken-1990.jpg]
+    alt: "Aquarell „Waldrand mit Birken“, 1990"
   - id: daecher
     titel: "Über den verschneiten Dächern Wiens"
     jahr: "1991"
@@ -108,6 +526,267 @@ werke:
     platz: zeitreise
     bilder: [daecher.jpg]
     alt: "Verschneite Dächer unter grauem Himmel"
+  - id: canale-1991
+    titel: "Canale"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "23,7 × 31,8 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [canale-1991.jpg]
+    alt: "Aquarell „Canale“, 1991"
+  - id: gracht-in-den-niederlanden-1991
+    titel: "Gracht in den Niederlanden"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "38,5 × 27,4 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [gracht-in-den-niederlanden-1991.jpg]
+    alt: "Aquarell „Gracht in den Niederlanden“, 1991"
+  - id: hebebruecke-in-delft-1991
+    titel: "Hebebrücke in Delft"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "27 × 38,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [hebebruecke-in-delft-1991.jpg]
+    alt: "Aquarell „Hebebrücke in Delft“, 1991"
+  - id: klm-1991
+    titel: "KLM"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "39,2 × 27,6 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [klm-1991.jpg]
+    alt: "Aquarell „KLM“, 1991"
+  - id: mayerhofgasse-1991
+    titel: "Mayerhofgasse"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "39 × 28 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [mayerhofgasse-1991.jpg]
+    alt: "Aquarell „Mayerhofgasse“, 1991"
+  - id: nationalfeiertag-1991
+    titel: "Nationalfeiertag"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "27,7 × 38,9 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [nationalfeiertag-1991.jpg]
+    alt: "Aquarell „Nationalfeiertag“, 1991"
+  - id: spiegelung-im-haas-haus-1991
+    titel: "Spiegelung im Haas-Haus"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "28,1 × 38,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [spiegelung-im-haas-haus-1991.jpg]
+    alt: "Aquarell „Spiegelung im Haas-Haus“, 1991"
+  - id: ueber-den-daechern-nach-nw-1991
+    titel: "Über den Dächern nach NW"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "38,5 × 27,6 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [ueber-den-daechern-nach-nw-1991.jpg]
+    alt: "Aquarell „Über den Dächern nach NW“, 1991"
+  - id: united-colors-of-benetton-1991
+    titel: "United Colors of Benetton"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "27,3 × 38,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [united-colors-of-benetton-1991.jpg]
+    alt: "Aquarell „United Colors of Benetton“, 1991"
+  - id: united-colors-of-benetton-1991-2
+    titel: "United Colors of Benetton"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "39,5 × 28 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [united-colors-of-benetton-1991-2.jpg]
+    alt: "Aquarell „United Colors of Benetton“, 1991"
+  - id: venedig-i-1991
+    titel: "Venedig I"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "39 × 27,8 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [venedig-i-1991.jpg]
+    alt: "Aquarell „Venedig I“, 1991"
+  - id: im-prater-1991
+    titel: "Im Prater"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "27,8 × 39 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [im-prater-1991.jpg]
+    alt: "Aquarell „Im Prater“, 1991"
+  - id: haas-haus-am-26-oktober-1991
+    titel: "Haas-Haus am 26. Oktober"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "19,2 × 34 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [haas-haus-am-26-oktober-1991.jpg]
+    alt: "Aquarell „Haas-Haus am 26. Oktober“, 1991"
+  - id: haas-haus-iii-1992
+    titel: "Haas-Haus III"
+    jahr: "1992"
+    technik: "Aquarell"
+    masse: "27 × 39 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [haas-haus-iii-1992.jpg]
+    alt: "Aquarell „Haas-Haus III“, 1992"
+  - id: dreiviertel-1993
+    titel: "Dreiviertel"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "39,3 × 27,4 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [dreiviertel-1993.jpg]
+    alt: "Aquarell „Dreiviertel“, 1993"
+  - id: eduscho-1993
+    titel: "Eduscho"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "39 × 27,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [eduscho-1993.jpg]
+    alt: "Aquarell „Eduscho“, 1993"
+  - id: fassadenspiegelung-1993
+    titel: "Fassadenspiegelung"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "39 × 27,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [fassadenspiegelung-1993.jpg]
+    alt: "Aquarell „Fassadenspiegelung“, 1993"
+  - id: hervis-1993
+    titel: "Hervis"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "39 × 27 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [hervis-1993.jpg]
+    alt: "Aquarell „Hervis“, 1993"
+  - id: hotel-papageno-1993
+    titel: "Hotel Papageno"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "39 × 28 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [hotel-papageno-1993.jpg]
+    alt: "Aquarell „Hotel Papageno“, 1993"
+  - id: humanic-1993
+    titel: "Humanic"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "28 × 39 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [humanic-1993.jpg]
+    alt: "Aquarell „Humanic“, 1993"
+  - id: leica-die-erste-1993
+    titel: "Leica – Die Erste"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "27,5 × 39 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [leica-die-erste-1993.jpg]
+    alt: "Aquarell „Leica – Die Erste“, 1993"
+  - id: leica-photo-city-1993
+    titel: "Leica – Photo City"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "27,5 × 38,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [leica-photo-city-1993.jpg]
+    alt: "Aquarell „Leica – Photo City“, 1993"
+  - id: spiegelung-1993
+    titel: "Spiegelung"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "27,5 × 38,6 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [spiegelung-1993.jpg]
+    alt: "Aquarell „Spiegelung“, 1993"
+  - id: spiegelung-im-haas-haus-1993
+    titel: "Spiegelung im Haas-Haus"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "40 × 54 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [spiegelung-im-haas-haus-1993.jpg]
+    alt: "Aquarell „Spiegelung im Haas-Haus“, 1993"
+  - id: venedig-1993
+    titel: "Venedig"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "39,2 × 28 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [venedig-1993.jpg]
+    alt: "Aquarell „Venedig“, 1993"
+  - id: vor-der-oper-1993
+    titel: "Vor der Oper"
+    jahr: "1993"
+    technik: "Aquarell"
+    masse: "39 × 27,8 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [vor-der-oper-1993.jpg]
+    alt: "Aquarell „Vor der Oper“, 1993"
+  - id: mayerhofgasse-im-winter-1994
+    titel: "Mayerhofgasse im Winter"
+    jahr: "1994"
+    technik: "Aquarell"
+    masse: "39 × 27,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [mayerhofgasse-im-winter-1994.jpg]
+    alt: "Aquarell „Mayerhofgasse im Winter“, 1994"
+  - id: heldenplatz-1995
+    titel: "Heldenplatz"
+    jahr: "1995"
+    technik: "Aquarell"
+    masse: "27,9 × 28,9 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [heldenplatz-1995.jpg]
+    alt: "Aquarell „Heldenplatz“, 1995"
+  - id: altstadt-ibiza-um-1995
+    titel: "Altstadt Ibiza"
+    jahr: "um 1995"
+    technik: "Aquarell"
+    masse: "29 × 27 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [altstadt-ibiza-um-1995.jpg]
+    alt: "Aquarell „Altstadt Ibiza“, um 1995"
   - id: canale
     titel: "Canale Grande"
     jahr: "1996"
@@ -117,6 +796,69 @@ werke:
     platz: zeitreise
     bilder: [canale.jpg]
     alt: "Palazzi am Canale Grande in Venedig"
+  - id: venezia-1996
+    titel: "Venezia"
+    jahr: "1996"
+    technik: "Aquarell"
+    masse: "28,1 × 28,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [venezia-1996.jpg]
+    alt: "Aquarell „Venezia“, 1996"
+  - id: wiedner-hauptstrasse-im-winter-1996
+    titel: "Wiedner Hauptstraße im Winter"
+    jahr: "1996"
+    technik: "Aquarell"
+    masse: "28 × 39,4 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [wiedner-hauptstrasse-im-winter-1996.jpg]
+    alt: "Aquarell „Wiedner Hauptstraße im Winter“, 1996"
+  - id: beim-ring-1996
+    titel: "Beim Ring"
+    jahr: "1996"
+    technik: "Aquarell"
+    masse: "38,8 × 27 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [beim-ring-1996.jpg]
+    alt: "Aquarell „Beim Ring“, 1996"
+  - id: wien-kaleidoskop-1997
+    titel: "Wien Kaleidoskop"
+    jahr: "1997"
+    technik: "Aquarell"
+    masse: "51 × 62,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [wien-kaleidoskop-1997.jpg]
+    alt: "Aquarell „Wien Kaleidoskop“, 1997"
+  - id: beim-karlsplatz-1998
+    titel: "Beim Karlsplatz"
+    jahr: "1998"
+    technik: "Aquarell"
+    masse: "26,9 × 39 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [beim-karlsplatz-1998.jpg]
+    alt: "Aquarell „Beim Karlsplatz“, 1998"
+  - id: bahnhof-in-salzburg-1998
+    titel: "Bahnhof in Salzburg"
+    jahr: "1998"
+    technik: "Aquarell"
+    masse: "27,2 × 38,3 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [bahnhof-in-salzburg-1998.jpg]
+    alt: "Aquarell „Bahnhof in Salzburg“, 1998"
+  - id: coca-cola-1999
+    titel: "Coca-Cola"
+    jahr: "1999"
+    technik: "Aquarell"
+    masse: "47,4 × 37,8 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [coca-cola-1999.jpg]
+    alt: "Aquarell „Coca-Cola“, 1999"
   - id: schrei
     titel: "Der Schrei"
     jahr: "2020"
@@ -127,15 +869,24 @@ werke:
     ganz: true
     bilder: [schrei.jpg]
     alt: "Gemälde Der Schrei"
-  - id: makrelen
-    titel: "Makrelen"
+  - id: stillleben-mit-ameise-2021
+    titel: "Stillleben mit Ameise"
     jahr: "2021"
     technik: "Öl"
-    masse: "44 × 37,5 cm"
+    masse: "42,5 × 50,5 cm"
     bereich: malerei
-    platz: auswahl
-    bilder: [makrelen.jpg]
-    alt: "Makrelen"
+    platz: zeitreise
+    bilder: [stillleben-mit-ameise-2021.jpg]
+    alt: "Öl „Stillleben mit Ameise“, 2021"
+  - id: u49-2022
+    titel: "U49"
+    jahr: "2022"
+    technik: "Öl"
+    masse: "50 × 37,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [u49-2022.jpg]
+    alt: "Öl „U49“, 2022"
   - id: februar
     titel: "24. Februar"
     jahr: "2023"
@@ -145,3 +896,194 @@ werke:
     platz: zeitreise
     bilder: [februar.jpg]
     alt: "Gemälde 24. Februar"
+  - id: david-unterer-teil-2024
+    titel: "David (unterer Teil)"
+    jahr: "2024"
+    technik: "Öl"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [david-unterer-teil-2024.jpg]
+    alt: "Öl „David (unterer Teil)“, 2024"
+  - id: der-unsichtbare-christus-2024
+    titel: "Der unsichtbare Christus"
+    jahr: "2024"
+    technik: "Öl"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [der-unsichtbare-christus-2024-1.jpg, der-unsichtbare-christus-2024-2.jpg, der-unsichtbare-christus-2024-3.jpg]
+    alt: "Öl „Der unsichtbare Christus“, 2024, in 3 Teilen"
+  - id: holzschnitt
+    titel: "Holzschnitt"
+    technik: "Holzschnitt"
+    masse: "10 × 13,1 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [holzschnitt.jpg]
+    alt: "Holzschnitt"
+  - id: holzschnitt-2
+    titel: "Holzschnitt"
+    technik: "Holzschnitt"
+    masse: "11 × 12,8 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [holzschnitt-2.jpg]
+    alt: "Holzschnitt"
+  - id: holzschnitt-3
+    titel: "Holzschnitt"
+    technik: "Holzschnitt"
+    masse: "14 × 16,7 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [holzschnitt-3.jpg]
+    alt: "Holzschnitt"
+  - id: holzschnitt-4
+    titel: "Holzschnitt"
+    technik: "Holzschnitt"
+    masse: "5 × 7 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [holzschnitt-4.jpg]
+    alt: "Holzschnitt"
+  - id: holzschnitt-5
+    titel: "Holzschnitt"
+    technik: "Holzschnitt"
+    masse: "6 × 9 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [holzschnitt-5.jpg]
+    alt: "Holzschnitt"
+  - id: holzschnitt-6
+    titel: "Holzschnitt"
+    technik: "Holzschnitt"
+    masse: "8 × 10 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [holzschnitt-6.jpg]
+    alt: "Holzschnitt"
+  - id: vier-jahreszeiten
+    titel: "Vier Jahreszeiten"
+    technik: "Illustration"
+    masse: "60 × 16,5 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [vier-jahreszeiten.jpg]
+    alt: "Illustration „Vier Jahreszeiten“"
+  - id: selbstportraet-schulzeit
+    titel: "Selbstporträt Schulzeit"
+    technik: "Kupferstich"
+    masse: "3 × 4,8 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [selbstportraet-schulzeit.jpg]
+    alt: "Kupferstich „Selbstporträt Schulzeit“"
+  - id: bretagne
+    titel: "Bretagne"
+    technik: "Radierung, Kaltnadel"
+    masse: "29 × 41,2 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [bretagne.jpg]
+    alt: "Radierung, Kaltnadel „Bretagne“"
+  - id: schuelerarbeit
+    titel: "Schülerarbeit"
+    technik: "Bleistift"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [schuelerarbeit.jpg]
+    alt: "Bleistift „Schülerarbeit“"
+  - id: sonne
+    titel: "Sonne"
+    technik: "Öl"
+    masse: "25 × 33,7 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [sonne.jpg]
+    alt: "Öl „Sonne“"
+  - id: zeichnung-bleistift
+    titel: "Zeichnung, Bleistift"
+    technik: "Zeichnung, Bleistift"
+    masse: "39 × 27 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [zeichnung-bleistift.jpg]
+    alt: "Zeichnung, Bleistift"
+  - id: zeichnung-bleistift-2
+    titel: "Zeichnung, Bleistift"
+    technik: "Zeichnung, Bleistift"
+    masse: "47 × 30 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [zeichnung-bleistift-2.jpg]
+    alt: "Zeichnung, Bleistift"
+  - id: zeichnung-bleistift-3
+    titel: "Zeichnung, Bleistift"
+    technik: "Zeichnung, Bleistift"
+    masse: "59 × 43,5 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [zeichnung-bleistift-3.jpg]
+    alt: "Zeichnung, Bleistift"
+  - id: zeichnung-bleistift-4
+    titel: "Zeichnung, Bleistift"
+    technik: "Zeichnung, Bleistift"
+    masse: "65 × 49,5 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [zeichnung-bleistift-4.jpg]
+    alt: "Zeichnung, Bleistift"
+  - id: titanweiss
+    titel: "Titanweiß"
+    technik: "Zeichnung, Bleistift"
+    masse: "57 × 40 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [titanweiss.jpg]
+    alt: "Zeichnung, Bleistift „Titanweiß“"
+  - id: zeichnung-bleistift-5
+    titel: "Zeichnung, Bleistift"
+    technik: "Zeichnung, Bleistift"
+    masse: "41 × 29,9 cm"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [zeichnung-bleistift-5.jpg]
+    alt: "Zeichnung, Bleistift"
+  - id: graeser
+    titel: "Gräser"
+    technik: "Aquarell"
+    masse: "12,1 × 17,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [graeser.jpg]
+    alt: "Aquarell „Gräser“"
+  - id: dalie
+    titel: "Dalie"
+    technik: "Aquarell"
+    masse: "21,5 × 30,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [dalie.jpg]
+    alt: "Aquarell „Dalie“"
+  - id: graeser-2
+    titel: "Gräser"
+    technik: "Aquarell"
+    masse: "14,9 × 13,2 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [graeser-2.jpg]
+    alt: "Aquarell „Gräser“"
+  - id: rose
+    titel: "Rose"
+    technik: "Aquarell"
+    masse: "21,5 × 28,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [rose.jpg]
+    alt: "Aquarell „Rose“"
+  - id: sonnenblumen
+    titel: "Sonnenblumen"
+    technik: "Aquarell"
+    masse: "20,2 × 28,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [sonnenblumen.jpg]
+    alt: "Aquarell „Sonnenblumen“"

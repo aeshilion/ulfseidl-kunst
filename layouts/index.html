@@ -20,10 +20,10 @@
 
 <section class="reise" aria-labelledby="zeitreise">
   <h2 id="zeitreise">Zeitreise</h2>
-  <p>Weitere Arbeiten von 1974 bis heute · zur Seite scrollen</p>
-  <div class="band" tabindex="0">
-  {{ range where $d.werke "platz" "zeitreise" }}
-    <figure><span class="j">{{ .jahr }}</span><div class="bb">{{ $w := . }}{{ range .bilder }}<img src="{{ printf "werke/%s" . | relURL }}" alt="{{ $w.alt }}" decoding="async">{{ end }}</div><figcaption>{{ .titel }}{{ with .technik }} · {{ . }}{{ end }}</figcaption></figure>
+  <p>Alle weiteren Arbeiten, von 1973 bis heute</p>
+  <div class="wolke">
+  {{ range where $d.werke "platz" "zeitreise" }}{{ $w := . }}{{ $r := 0.0 }}{{ range .bilder }}{{ $c := imageConfig (printf "static/werke/%s" .) }}{{ $r = add $r (div (float $c.Width) $c.Height) }}{{ end }}
+    <figure id="{{ .id }}" style="--r:{{ $r | lang.FormatNumber 3 | replaceRE "," "." }}"><div class="bb">{{ range .bilder }}{{ $c := imageConfig (printf "static/werke/%s" .) }}<img src="{{ printf "werke/%s" . | relURL }}" width="{{ $c.Width }}" height="{{ $c.Height }}" alt="{{ $w.alt }}" loading="lazy" decoding="async">{{ end }}</div><figcaption>{{ .titel }}<span>{{ $t := slice }}{{ range slice .jahr .technik (.masse | default "") }}{{ if . }}{{ $t = $t | append . }}{{ end }}{{ end }}{{ delimit $t " · " }}</span></figcaption></figure>
   {{ end }}
   </div>
 </section>

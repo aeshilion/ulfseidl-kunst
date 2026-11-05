@@ -9,14 +9,16 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 - Bilder liegen in `static/werke/` (JPG, längste Seite höchstens 1600 px, unter 400 KB).
 - Alle Bilder der alten Seite liegen als Vorrat in `archiv/alte-seite/` (nicht veröffentlicht, siehe `archiv/README.md`). Wünscht Ulf ein Werk, zuerst dort suchen.
 - Startseite: Startbild (Jeansjacke) → Kacheln Malerei/Grafik → J. C. Superstar → Einzelwerke (`platz: auswahl`)
-  → Mazar-i-Sharif → Zeitreise-Band (`platz: zeitreise`). Unterseiten `/malerei/` und `/grafik/` zeigen alles mit `bereich`.
+  → Mazar-i-Sharif → Zeitreise als Bilderwolke (`platz: zeitreise`, alle übrigen Werke). Unterseiten `/malerei/` und `/grafik/` zeigen alles mit `bereich`.
 - Aussehen: `assets/css/seite.css` (Nachtgalerie: dunkel, Bodoni, Kugelschreiber-Blau `#8ea2ec`).
 - **Neue Bilder** lädt Ulf auf GitHub in `eingang/` hoch. Ablauf: Skill `neue-bilder` (`.claude/skills/`). Zurücknehmen: Skill `rueckgaengig`. Prüfen und zeigen: Skill `seite-pruefen`.
 - Ulfs Kurzanleitung: `anleitung/kurzanleitung.html` (+ PDF).
-- **Admin-Seite `ulfseidl.at/admin`** (Decap CMS in `static/admin/`, Anmeldung über `admin-auth/`): Ulf ändert dort nur
-  Reihenfolge und Platz der Werke. Speichern legt einen PR auf einem Zweig `cms/…` an; ist „Seite prüfen“ grün,
-  mergt `.github/workflows/admin-automerge.yml` ihn und veröffentlicht. Nicht nachbauen, nicht umbauen; Feldbeschreibung
-  von `data/werke.yaml` steht in `doku/werke-felder.md` (die Admin-Seite entfernt Kommentare in der YAML-Datei).
+- **Sortier-Seite `ulfseidl.at/admin`** (eigene Seite in `static/admin/`: `ordnen.js` Oberfläche, `ordnen-logik.js`
+  Logik mit Test `pruefen/ordnen-test.js`; Anmeldung über `admin-auth/`): Ulf zieht dort Bilder zwischen Auswahl und
+  Zeitreise. Veröffentlichen legt einen PR auf einem Zweig `cms/…` an; ist „Seite prüfen“ grün, mergt
+  `.github/workflows/admin-automerge.yml` ihn und veröffentlicht. Die Seite verschiebt nur ganze Werk-Blöcke und ändert
+  die Zeile `platz:` – Felder bitte immer im Muster der Datei (`  - id:` beginnt einen Block, Felder mit 4 Leerzeichen),
+  sonst lehnt die Sortier-Seite die Datei ab. Feldbeschreibung: `doku/werke-felder.md`.
   Liegt ein offener `cms/…`-PR vor, `data/werke.yaml` nicht gleichzeitig ändern.
 - Rechtliches: `content/impressum.md`, `content/datenschutz.md`, `content/kontakt.md`.
 

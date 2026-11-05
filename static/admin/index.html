@@ -4,10 +4,51 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>ulfseidl.at – Verwaltung</title>
+<title>Bilder ordnen – ulfseidl.at</title>
+<link rel="stylesheet" href="ordnen.css">
 </head>
 <body>
-<!-- Decap CMS 3.17.3 (MIT), selbst gehostet: nichts von fremden Servern. -->
-<script src="decap-cms.js"></script>
+<header class="leiste">
+  <div class="name">Bilder ordnen <small>ulfseidl.at</small></div>
+  <div class="knoepfe">
+    <button id="zuruecksetzen" type="button" hidden>Zurücksetzen</button>
+    <button id="veroeffentlichen" class="haupt" type="button" disabled>Veröffentlichen</button>
+  </div>
+</header>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+
+<section id="anmelden" class="anmelden" hidden>
+  <h1>Bilder ordnen</h1>
+  <p>Hier ordnest du die Bilder auf deiner Startseite: ziehen, loslassen, veröffentlichen.</p>
+  <button id="anmeldeknopf" class="haupt gross" type="button">Mit GitHub anmelden</button>
+</section>
+
+<main id="arbeit" hidden>
+  <p class="hilfe">Bild anfassen und an die neue Stelle ziehen – oder einmal anklicken und die Knöpfe benützen. Die Seiten Malerei und Grafik folgen derselben Reihenfolge.</p>
+  <div id="serie-jc" class="serie"></div>
+  <section class="bereich" data-platz="auswahl">
+    <h2>Auswahl <small>groß auf der Startseite</small></h2>
+    <div class="feld" data-platz="auswahl"></div>
+  </section>
+  <div id="serie-mazar" class="serie"></div>
+  <section class="bereich" data-platz="zeitreise">
+    <h2>Zeitreise <small>alle weiteren Bilder darunter</small></h2>
+    <div class="feld" data-platz="zeitreise"></div>
+  </section>
+  <p class="fuss"><button id="vorher" type="button" hidden>Vorherigen Stand wiederherstellen</button></p>
+</main>
+
+<div id="werkzeug" class="werkzeug" hidden>
+  <span id="werkzeug-titel"></span>
+  <button type="button" data-tu="anfang">⇤ ganz nach vorne</button>
+  <button type="button" data-tu="vor">← früher</button>
+  <button type="button" data-tu="nach">später →</button>
+  <button type="button" data-tu="ende">ganz nach hinten ⇥</button>
+  <button type="button" data-tu="wechseln" id="wechseln"></button>
+  <button type="button" data-tu="fertig" class="leise">fertig</button>
+</div>
+
+<script src="ordnen-logik.js"></script>
+<script src="ordnen.js"></script>
 </body>
 </html>

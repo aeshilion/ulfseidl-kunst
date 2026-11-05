@@ -1,0 +1,58 @@
+:root{--grund:#101114;--flaeche:#1a1c21;--text:#e8e6e1;--leise:#a09e98;--blau:#8ea2ec;--linie:#2a2c33;--rot:#f08a7a;--gruen:#8fd19e;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--grund);color:var(--text);font:17px/1.5 system-ui,-apple-system,sans-serif}
+button{font:inherit;color:inherit;background:var(--flaeche);border:1px solid #3a3d46;border-radius:8px;padding:10px 16px;cursor:pointer}
+button:hover{border-color:var(--blau)}
+button:focus-visible{outline:3px solid var(--blau);outline-offset:2px}
+button:disabled{opacity:.4;cursor:default;border-color:#3a3d46}
+.haupt{background:#3f55b8;border-color:#3f55b8;color:#fff;font-weight:600}
+.haupt:disabled{background:#2a2c33;border-color:#2a2c33}
+.gross{font-size:20px;padding:16px 28px}
+.leise{background:none}
+
+.leiste{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px;background:rgba(16,17,20,.96);border-bottom:1px solid var(--linie)}
+.name{font-size:20px}.name small{color:var(--leise);font-size:14px;margin-left:8px}
+.knoepfe{display:flex;gap:10px}
+.status{margin:0;padding:10px 24px;min-height:44px;font-size:18px}
+.status.gut{color:var(--gruen)}.status.schlecht{color:var(--rot)}
+.status a{color:var(--blau)}
+.status .punkt{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blau);margin-right:10px;animation:puls 1.2s infinite}
+@keyframes puls{50%{opacity:.25}}
+
+.anmelden{max-width:520px;margin:12vh auto;padding:0 24px;text-align:center}
+.anmelden h1{font-weight:400;font-size:40px;margin:0 0 12px}
+.anmelden p{color:var(--leise);margin:0 0 32px}
+
+main{padding:0 24px 140px}
+.hilfe{color:var(--leise);margin:4px 0 24px}
+.bereich{margin:0 0 36px}
+.bereich h2{font-weight:400;font-size:26px;margin:0 0 12px}
+.bereich h2 small{font-size:15px;color:var(--leise);margin-left:10px}
+.feld{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;min-height:150px;padding:12px;border:2px dashed var(--linie);border-radius:12px}
+.feld.ziel{border-color:var(--blau)}
+.kachel{position:relative;touch-action:manipulation;margin:0;padding:8px;background:var(--flaeche);border:2px solid transparent;border-radius:10px;cursor:grab;user-select:none;-webkit-user-select:none}
+.kachel:hover{border-color:#3a3d46}
+.kachel.gewaehlt{border-color:var(--blau);box-shadow:0 0 0 3px rgba(142,162,236,.35)}
+.kachel.zieht{opacity:.3}
+.kachel.geist{position:fixed;left:0;top:0;z-index:50;pointer-events:none;opacity:.92;border-color:var(--blau);box-shadow:0 20px 50px rgba(0,0,0,.7)}
+body.zieht-gerade,body.zieht-gerade *{cursor:grabbing!important;user-select:none}
+.kachel.davor::before,.kachel.danach::after{content:"";position:absolute;top:0;bottom:0;width:5px;border-radius:3px;background:var(--blau)}
+.kachel.davor::before{left:-10px}.kachel.danach::after{right:-10px}
+.kachel .bb{display:flex;gap:3px;height:130px;align-items:center;justify-content:center;background:#0c0d10;border-radius:6px;overflow:hidden}
+.kachel img{max-height:130px;max-width:100%;min-width:0;object-fit:contain;pointer-events:none;-webkit-user-drag:none}
+.kachel .bb img{flex:0 1 auto}
+.kachel figcaption{font-size:14px;margin-top:6px;line-height:1.3}
+.kachel figcaption span{display:block;color:var(--leise);font-size:13px}
+.kachel .nr{position:absolute;top:12px;left:12px;background:rgba(16,17,20,.85);border-radius:4px;padding:0 6px;font-size:12px;color:var(--leise)}
+
+.serie{display:flex;align-items:center;gap:14px;margin:0 0 30px;padding:10px 14px;border:1px solid var(--linie);border-radius:12px;background:#15161a;opacity:.8}
+.serie .bb{display:flex;gap:3px}
+.serie img{height:70px;width:auto}
+.serie p{margin:0;color:var(--leise);font-size:15px}
+.serie b{color:var(--text);font-weight:500}
+
+.werkzeug{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:8px;max-width:calc(100vw - 24px);padding:12px 14px;background:#22252c;border:1px solid var(--blau);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.6)}
+.werkzeug span{font-weight:600;margin-right:6px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fuss{margin-top:20px}
+@media (prefers-reduced-motion:reduce){.status .punkt{animation:none}}

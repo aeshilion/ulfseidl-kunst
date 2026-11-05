@@ -15,7 +15,7 @@ Wartung: keine. Kosten: 0 (Cloudflare-Gratisstufe). Betreiber: Emanuel (EAP-Clou
 4. Code ändern: `worker.js` hier ändern, dann im Dashboard einfügen und Deploy (oder `wrangler deploy`).
 
 ## Was passiert beim Speichern
-Admin-Seite → Pull Request auf Zweig `cms/…` → „Seite prüfen“ → grün → `.github/workflows/admin-automerge.yml`
+Sortier-Seite (`static/admin/ordnen.js`) → Pull Request auf Zweig `cms/…` → „Seite prüfen“ → grün → `.github/workflows/admin-automerge.yml`
 mergt und startet den Deploy → nach etwa 2 Minuten auf ulfseidl.at. Rot: nichts passiert, Claude oder Emanuel schauen.
 
 ## Rückweg

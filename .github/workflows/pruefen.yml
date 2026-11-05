@@ -20,6 +20,8 @@ jobs:
           extended: true
       - name: Seite bauen
         run: hugo --gc --minify
+      - name: Sortier-Seite (Logik)
+        run: node pruefen/ordnen-test.js
       - name: Prüfen
         run: |
           python3 -m pip install --quiet pyyaml
