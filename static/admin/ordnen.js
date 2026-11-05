@@ -461,7 +461,13 @@
   function neuFormularPruefen() {
     var titel = $("neu-titel").value.trim();
     var bereich = document.querySelector('#neu-form input[name="bereich"]:checked');
-    $("neu-ok").disabled = !(neuBlob && titel && bereich);
+    var fehlt = [];
+    if (!neuBlob) fehlt.push("ein Foto");
+    if (!titel) fehlt.push("den Titel");
+    if (!bereich) fehlt.push("Malerei oder Grafik");
+    $("neu-ok").disabled = fehlt.length > 0;
+    var hinweis = $("neu-fehlt");  // fehlt, solange der Browser noch die alte Seite im Zwischenspeicher hat
+    if (hinweis) hinweis.textContent = fehlt.length ? "Noch nötig: " + fehlt.join(", ") : "";
   }
 
   function neuMeldung(text) { var m = $("neu-meldung"); m.textContent = text || ""; m.hidden = !text; }
