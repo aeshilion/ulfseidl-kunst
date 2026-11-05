@@ -100,7 +100,11 @@ def gebaut_pruefen():
         if p.suffix not in {".html", ".css", ".js"}:
             continue
         text = p.read_text(encoding="utf-8", errors="replace")
-        for muster, was in FREMD:
+        # Nur im Admin-Programm (Decap, public/admin/*.js) ist url(/URL( Programmcode, kein Nachladen –
+        # dort nur die Tag-Muster prüfen. Jede andere .js-Datei bekommt alle Muster.
+        im_admin = p.suffix == ".js" and p.parent == PUBLIC / "admin"
+        muster_liste = FREMD[:2] if im_admin else FREMD
+        for muster, was in muster_liste:
             for m in muster.finditer(text):
                 schnipsel = text[m.start():m.start() + 120]
                 if EIGEN.search(schnipsel[:80]):
@@ -114,9 +118,17 @@ def gebaut_pruefen():
                     fehler.append(f"{p.relative_to(PUBLIC)}: ein Bild ohne Beschreibung (alt): {m.group(0)[:90]!r}")
 
 
+def admin_pruefen():
+    # Halb eingerichtete Admin-Seite nie veröffentlichen: Platzhalter statt echter Anmelde-Adresse.
+    cfg = PUBLIC / "admin" / "config.yml"
+    if cfg.is_file() and "WORKER-SUBDOMAIN" in cfg.read_text(encoding="utf-8"):
+        fehler.append("admin/config.yml: Anmelde-Adresse (base_url) ist noch ein Platzhalter – Emanuel richtet sie ein.")
+
+
 def main():
     daten_pruefen()
     gebaut_pruefen()
+    admin_pruefen()
     if fehler:
         print(f"✗ {len(fehler)} Punkt(e) zu beheben:\n")
         for f in fehler:

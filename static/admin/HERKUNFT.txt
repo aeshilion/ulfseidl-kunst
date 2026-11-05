@@ -1,0 +1,2 @@
+Decap CMS 3.17.3 (MIT, https://github.com/decaporg/decap-cms), unverändert aus npm „decap-cms“ dist/.
+Lizenzhinweise der gebündelten Teile: decap-cms.js.LICENSE.txt

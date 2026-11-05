@@ -1,0 +1,42 @@
+# Speichert Ulf auf ulfseidl.at/admin, legt Decap einen Pull Request auf einem Zweig cms/… an.
+# Ist „Seite prüfen“ dafür grün, wird er hier automatisch gemergt und die Seite neu veröffentlicht.
+# Nur Zweige aus DIESEM Repo (nicht aus Forks) und nur von Ulf oder Emanuel.
+# Der Merge mit GITHUB_TOKEN löst keinen push-Workflow aus – darum wird der Deploy ausdrücklich gestartet.
+name: Admin automatisch veröffentlichen
+on:
+  workflow_run:
+    workflows: ["Seite prüfen"]
+    types: [completed]
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+jobs:
+  merge:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_branch, 'cms/') &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      BRANCH: ${{ github.event.workflow_run.head_branch }}
+      SHA: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - name: Pull Request suchen und mergen
+        run: |
+          set -euo pipefail
+          pr=$(gh pr list -R "$REPO" --head "$BRANCH" --state open --json number,author,headRefOid,baseRefName \
+               --jq '.[0] // empty')
+          [ -n "$pr" ] || { echo "Kein offener PR für $BRANCH"; exit 0; }
+          nr=$(jq -r .number <<<"$pr"); autor=$(jq -r .author.login <<<"$pr")
+          kopf=$(jq -r .headRefOid <<<"$pr"); ziel=$(jq -r .baseRefName <<<"$pr")
+          case "$autor" in ulfseidl54-png|aeshilion) ;; *) echo "Autor $autor nicht freigegeben"; exit 1;; esac
+          [ "$ziel" = main ] || { echo "Ziel $ziel ist nicht main"; exit 1; }
+          [ "$kopf" = "$SHA" ] || { echo "PR hat sich seit der Prüfung geändert – warte auf neue Prüfung"; exit 0; }
+          gh pr merge "$nr" -R "$REPO" --squash --delete-branch --match-head-commit "$SHA"
+          echo "PR #$nr gemergt"
+      - name: Seite veröffentlichen
+        run: gh workflow run hugo.yml -R "$REPO" --ref main

@@ -1,19 +1,3 @@
-# Alle Werke der Seite. Ein Eintrag = ein Werk (auch mehrteilige: mehrere Bilder unter "bilder").
-#
-# Felder:
-#   id       kurzer Name ohne Leerzeichen, eindeutig
-#   titel    wie er auf der Seite steht
-#   jahr     Text, z. B. "2020" oder "1978–80"
-#   technik  z. B. "Öl auf Leinwand", "Aquarell", "Kugelschreiber auf Papier"
-#   masse    optional, z. B. "41,5 × 59 cm"
-#   bereich  malerei | grafik  (welche Kachel/Unterseite)
-#   platz    auswahl | zeitreise  (auswahl = große Einzelwerke auf der Startseite, zeitreise = Band unten)
-#   bilder   Dateinamen in static/werke/, in der Reihenfolge, wie sie nebeneinander hängen
-#   ganz     optional: ganz: true = Bild nie zuschneiden (für sehr schmale Hochformate)
-#   alt      Bildbeschreibung für Blinde und Suchmaschinen (kurz, was man sieht)
-#
-# Reihenfolge in dieser Datei = Reihenfolge auf der Seite.
-
 held:
   bild: held.jpg
   alt: "J. C. Superstar: Jeansjacke, in Kugelschreiber gezeichnet"

@@ -1,0 +1,53 @@
+# Admin-Seite ulfseidl.at/admin – nur Reihenfolge und Platz der Werke.
+# Neue Bilder laufen weiter über eingang/ + Skill neue-bilder (verkleinern, prüfen).
+locale: de
+backend:
+  name: github
+  repo: aeshilion/ulfseidl-kunst
+  branch: main
+  base_url: https://ulfseidl-admin-auth.WORKER-SUBDOMAIN.workers.dev   # OAuth-Vermittler (Cloudflare Worker), siehe admin-auth/README.md
+  auth_endpoint: auth
+  commit_messages:
+    update: "Admin: Reihenfolge/Platz geändert"
+publish_mode: editorial_workflow
+media_folder: static/werke
+public_folder: /werke
+site_url: https://ulfseidl.at
+display_url: https://ulfseidl.at
+
+collections:
+  - name: seite
+    label: Seite
+    editor: { preview: false }
+    files:
+      - name: werke
+        label: Werke – Reihenfolge und Platz
+        file: data/werke.yaml
+        format: yaml
+        fields:
+          - { name: held, label: Startbild, widget: hidden }
+          - { name: serien, label: Serien, widget: hidden }
+          - name: werke
+            label: Werke (ziehen zum Umordnen – oben = zuerst auf der Seite)
+            label_singular: Werk
+            widget: list
+            collapsed: true
+            allow_add: false
+            allow_remove: false
+            summary: "{{fields.titel}} · {{fields.jahr}} · {{fields.platz}}"
+            fields:
+              - { name: titel, label: Titel, widget: string }
+              - name: platz
+                label: Platz
+                widget: select
+                options:
+                  - { label: "Auswahl – groß auf der Startseite", value: auswahl }
+                  - { label: "Zeitreise – Band unten", value: zeitreise }
+              - { name: id, widget: hidden }
+              - { name: jahr, widget: hidden }
+              - { name: technik, widget: hidden }
+              - { name: masse, widget: hidden }
+              - { name: bereich, widget: hidden }
+              - { name: bilder, widget: hidden }
+              - { name: ganz, widget: hidden }
+              - { name: alt, widget: hidden }
