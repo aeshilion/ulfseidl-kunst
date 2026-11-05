@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ulfseidl.at – Kurzanleitung</title>
 <style>
-  @page{size:A4;margin:12mm 14mm}
+  @page{size:A4;margin:10mm 13mm}
   :root{--blau:#3b55c4;--text:#1d1e22;--leise:#5d5f66;--linie:#d9dbe1;--feld:#f3f4f8}
   *{box-sizing:border-box}
   body{margin:0;background:#fff;color:var(--text);font:14px/1.45 Georgia,"Times New Roman",serif}
@@ -26,6 +26,7 @@
   .nein li::marker{content:"✕  ";color:#b42318}
   .fuss{margin-top:14px;font:12px system-ui,sans-serif;color:var(--leise);border-top:1px solid var(--linie);padding-top:8px}
   @media (max-width:640px){.raster,.satze{grid-template-columns:1fr}}
+  @media print{.blatt{padding:8px 0}p,li{font-size:12.8px;line-height:1.4}.satz{font-size:12.8px;padding:4px 8px}h1{font-size:30px}.unter{margin-bottom:12px}.raster{gap:8px 20px}.satz{margin:2px 0}.satze{gap:2px 12px}.fuss{margin-top:6px;padding-top:5px}}
 </style>
 </head>
 <body>
@@ -40,6 +41,7 @@
         <li>Claude-App öffnen → <b>Code</b> → <b>Neu</b>.</li>
         <li>Unten <b>Repo</b>: <code>aeshilion/ulfseidl-kunst</code>, Umgebung <b>Default</b>.</li>
         <li>Für jedes neue Thema eine neue Sitzung.</li>
+        <li>Für die Skischul-Seite <b>ersteschischule.at</b> dasselbe mit Repo <code>aeshilion/ulfseidl-hugo</code>.</li>
       </ol>
     </section>
 
@@ -49,6 +51,7 @@
         <li>Claude zeigt dir ein Bild der Änderung und macht einen <b>Vorschlag</b> (Link zu GitHub).</li>
         <li>Passt es: im Vorschlag <span class="knopf">Merge pull request</span> → <span class="knopf">Confirm merge</span>.</li>
         <li>Nach etwa einer Minute ist es auf <b>ulfseidl.at</b>.</li>
+        <li><b>Reihenfolge ohne Claude:</b> <code>ulfseidl.at/admin</code> → mit GitHub anmelden → Werke ziehen oder Platz wählen → <span class="knopf">Speichern</span>. Ist die Prüfung grün, geht es nach etwa 3 Minuten von selbst online.</li>
       </ol>
     </section>
 
