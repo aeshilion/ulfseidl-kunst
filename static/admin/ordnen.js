@@ -508,12 +508,17 @@
     var platz = document.querySelector('#neu-form input[name="platz"]:checked').value;
     var basis = Ordnen.slug(felder.titel + (felder.jahr ? "-" + felder.jahr : "")) || "werk", id = basis, n = 2;
     while (nachId(id) || entfernt.indexOf(id) >= 0) id = basis + "-" + n++;
+    delete kacheln[id];  // weggeworfenes gleichnamiges Werk: keine alte Kachel wiederverwenden
     neueWerke[id] = { felder: felder, blob: neuBlob };
     werke.push({ id: id, platz: platz, titel: felder.titel, jahr: felder.jahr, bilder: ["neu.jpg"], vorschau: neuUrl, text: "" });
-    // an den Anfang des gewählten Bereichs
-    var erster = imBereich(platz)[0];
-    var o = { id: id, platz: platz };
-    if (erster) ordnung.splice(stelle(erster.id), 0, o);
+    // Auswahl: vorne. Zeitreise: nach Jahr einsortiert (ohne Jahr ans Ende), wie die übrigen Werke
+    var o = { id: id, platz: platz }, liste = imBereich(platz), vor = null;
+    if (platz === "auswahl") vor = liste[0] || null;
+    else {
+      var j = jahrZahl(felder.jahr);
+      vor = liste.filter(function (x) { return jahrZahl(nachId(x.id).jahr) > j; })[0] || null;
+    }
+    if (vor) ordnung.splice(stelle(vor.id), 0, o);
     else if (platz === "auswahl") ordnung.unshift(o);
     else ordnung.push(o);
     neuBlob = null; neuUrl = null;
@@ -523,6 +528,8 @@
     if (el) { el.focus({ preventScroll: true }); el.scrollIntoView({ block: "center", behavior: "smooth" }); }
     status("„" + felder.titel + "“ ist dazugekommen. Wenn alles passt: oben rechts „Veröffentlichen“.", "gut");
   }
+
+  function jahrZahl(s) { var m = String(s || "").match(/\d{4}/); return m ? +m[0] : 9999; }
 
   function neuEinrichten() {
     $("neu-knopf").addEventListener("click", neuOeffnen);
@@ -647,7 +654,7 @@
       Object.keys(neueWerke).forEach(function (id) { var w = nachId(id); if (w && w.vorschau) URL.revokeObjectURL(w.vorschau); });
       werke = werke.filter(function (w) { return !neueWerke[w.id]; });
       neueWerke = {}; entfernt = [];
-      ordnung = geladen.slice(); gewaehlt = null; merken("ordnen.entwurf", null); zeichnen();
+      ordnung = geladen.slice(); gewaehlt = null; merken("ordnen.entwurf", null); zeichnen(); status("");
     });
     neuEinrichten();
     $("vorher").addEventListener("click", function () { var v = vorherLesen(); if (v) { ordnung = v; gewaehlt = null; zeichnen(); } });

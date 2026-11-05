@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Bilder ordnen – ulfseidl.at</title>
-<link rel="stylesheet" href="ordnen.css">
+<link rel="stylesheet" href="ordnen.css?v=3">
 </head>
 <body>
 <div class="kopf">
@@ -57,7 +57,7 @@
   <form method="dialog" id="neu-form">
     <h2>Neues Bild</h2>
     <label class="ablage" id="ablage">
-      <input type="file" id="neu-datei" accept="image/jpeg,image/png,image/webp" hidden>
+      <input type="file" id="neu-datei" accept="image/*" hidden>
       <img id="neu-vorschau" alt="" hidden>
       <span id="ablage-text">Foto hierher ziehen<br><small>oder hier klicken und auswählen</small></span>
     </label>
@@ -83,7 +83,7 @@
   </form>
 </dialog>
 
-<script src="ordnen-logik.js"></script>
-<script src="ordnen.js"></script>
+<script src="ordnen-logik.js?v=3"></script>
+<script src="ordnen.js?v=3"></script>
 </body>
 </html>
