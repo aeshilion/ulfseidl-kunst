@@ -36,6 +36,14 @@ serien:
     alt: "Vier Tafeln: Abendwolken, eine weiße Taube, Reiter und Pferde, ein umgestürztes Glas"
 
 werke:
+  - id: golgotha
+    titel: "Golgotha"
+    jahr: "1977–78"
+    technik: "Öl"
+    bereich: malerei
+    platz: auswahl
+    bilder: [golgotha.jpg]
+    alt: "Hände ragen aus einem Trümmerfeld"
   - id: arma2
     titel: "Arma virumque cano II"
     jahr: "2020"
@@ -45,14 +53,6 @@ werke:
     platz: auswahl
     bilder: [arma2.jpg]
     alt: "Pferde und ein schreiender Reiter unter einem Kreuz"
-  - id: golgotha
-    titel: "Golgotha"
-    jahr: "1977–78"
-    technik: "Öl"
-    bereich: malerei
-    platz: auswahl
-    bilder: [golgotha.jpg]
-    alt: "Hände ragen aus einem Trümmerfeld"
   - id: simonetta
     titel: "Simonetta"
     jahr: "2021"
@@ -62,15 +62,6 @@ werke:
     platz: auswahl
     bilder: [simonetta.jpg]
     alt: "Zwei Frauenfiguren in türkisem Wasser mit einer Muschel"
-  - id: stephansdom
-    titel: "Stephansdom im Haas-Haus"
-    jahr: "1991"
-    technik: "Aquarell"
-    masse: "38,5 × 27,6 cm"
-    bereich: malerei
-    platz: auswahl
-    bilder: [stephansdom.jpg]
-    alt: "Der Stephansdom spiegelt sich in der Glasfassade des Haas-Hauses"
   - id: wolken
     titel: "Wolken"
     jahr: "2015"
@@ -80,6 +71,15 @@ werke:
     bilder: [wolken.jpg]
     alt: "Helle Wolken vor blauem Himmel"
 
+  - id: stephansdom
+    titel: "Stephansdom im Haas-Haus"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "38,5 × 27,6 cm"
+    bereich: malerei
+    platz: auswahl
+    bilder: [stephansdom.jpg]
+    alt: "Der Stephansdom spiegelt sich in der Glasfassade des Haas-Hauses"
   - id: autowrack
     titel: "Autowrack"
     jahr: "1974"
