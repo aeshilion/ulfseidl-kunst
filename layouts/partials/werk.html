@@ -1,0 +1,6 @@
+{{- /* Ein Werk als Bild(er) mit Unterschrift. Parameter: das Werk aus data/werke.yaml */ -}}
+{{- $w := . -}}
+<figure class="werk{{ if gt (len $w.bilder) 1 }} mehrteilig{{ end }}" id="{{ $w.id | default (anchorize $w.titel) }}">
+  <div class="tafeln">{{ range $i, $b := $w.bilder }}<img src="{{ printf "werke/%s" $b | relURL }}" alt="{{ $w.alt }}{{ if gt (len $w.bilder) 1 }} (Teil {{ add $i 1 }} von {{ len $w.bilder }}){{ end }}" loading="lazy" decoding="async">{{ end }}</div>
+  <figcaption>{{ $w.titel }}<span>{{ $teile := slice }}{{ range slice $w.jahr $w.technik ($w.masse | default "") }}{{ if . }}{{ $teile = $teile | append . }}{{ end }}{{ end }}{{ delimit $teile " · " }}</span></figcaption>
+</figure>

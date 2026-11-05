@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{- $d := hugo.Data.werke -}}
+{{- $b := .Params.bereich -}}
+<div class="seitenkopf"><h1>{{ .Title }}</h1>{{ with .Params.untertitel }}<p>{{ . }}</p>{{ end }}</div>
+{{ if eq $b "grafik" }}{{ partial "serie.html" $d.serien.jc }}{{ else if eq $b "malerei" }}{{ partial "serie.html" $d.serien.mazar }}{{ end }}
+<div class="reihe">
+{{ range where $d.werke "bereich" $b }}{{ partial "werk.html" . }}{{ end }}
+</div>
+{{ end }}

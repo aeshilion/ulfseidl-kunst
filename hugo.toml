@@ -1,0 +1,27 @@
+baseURL = "https://ulfseidl.at/"
+title = "Ulf Seidl – Malerei & Grafik"
+languageCode = "de-AT"
+defaultContentLanguage = "de"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  beschreibung = "Malerei und Grafik von Ulf Seidl: Ölbilder, Aquarelle und Kugelschreiberzeichnungen seit 1974."
+  mail = "info@ersteschischule.at"
+  ort = "5542 Flachau, Österreich"
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[[menus.main]]
+  name = "Malerei"
+  pageRef = "/malerei"
+  weight = 1
+[[menus.main]]
+  name = "Grafik"
+  pageRef = "/grafik"
+  weight = 2
+[[menus.main]]
+  name = "Kontakt"
+  pageRef = "/kontakt"
+  weight = 3

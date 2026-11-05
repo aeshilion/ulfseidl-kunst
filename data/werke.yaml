@@ -1,0 +1,160 @@
+# Alle Werke der Seite. Ein Eintrag = ein Werk (auch mehrteilige: mehrere Bilder unter "bilder").
+#
+# Felder:
+#   id       kurzer Name ohne Leerzeichen, eindeutig
+#   titel    wie er auf der Seite steht
+#   jahr     Text, z. B. "2020" oder "1978–80"
+#   technik  z. B. "Öl auf Leinwand", "Aquarell", "Kugelschreiber auf Papier"
+#   masse    optional, z. B. "41,5 × 59 cm"
+#   bereich  malerei | grafik  (welche Kachel/Unterseite)
+#   platz    auswahl | zeitreise  (auswahl = große Einzelwerke auf der Startseite, zeitreise = Band unten)
+#   bilder   Dateinamen in static/werke/, in der Reihenfolge, wie sie nebeneinander hängen
+#   alt      Bildbeschreibung für Blinde und Suchmaschinen (kurz, was man sieht)
+#
+# Reihenfolge in dieser Datei = Reihenfolge auf der Seite.
+
+held:
+  bild: held.jpg
+  alt: "J. C. Superstar: Jeansjacke, in Kugelschreiber gezeichnet"
+
+serien:
+  # Diese zwei hängen immer zusammen (Wunsch Ulf 05.11.2026)
+  jc:
+    titel: "J. C. Superstar"
+    jahr: "2009–2011"
+    technik: "Kugelschreiber auf Papier"
+    masse: "drei Blätter, je 240 × 140 cm"
+    bilder: [jc-links.jpg, jc-mitte.jpg, jc-rechts.jpg]
+    alt: "Drei Jeansjacken mit ausgebreiteten Ärmeln, in blauem Kugelschreiber gezeichnet"
+  mazar:
+    titel: "Herbst in Mazar-i-Sharif"
+    jahr: "2020"
+    technik: "Öl, Polyptychon"
+    masse: "4 × 29 × 50 cm"
+    bilder: [mazar1.jpg, mazar2.jpg, mazar3.jpg, mazar4.jpg]
+    alt: "Vier Tafeln: Abendwolken, eine weiße Taube, Reiter und Pferde, ein umgestürztes Glas"
+
+werke:
+  - id: arma2
+    titel: "Arma virumque cano II"
+    jahr: "2020"
+    technik: "Öl auf Leinwand"
+    masse: "41,5 × 59 cm"
+    bereich: malerei
+    platz: auswahl
+    bilder: [arma2.jpg]
+    alt: "Pferde und ein schreiender Reiter unter einem Kreuz"
+  - id: golgotha
+    titel: "Golgotha"
+    jahr: "1977–78"
+    technik: "Öl"
+    bereich: malerei
+    platz: auswahl
+    bilder: [golgotha.jpg]
+    alt: "Hände ragen aus einem Trümmerfeld"
+  - id: simonetta
+    titel: "Simonetta"
+    jahr: "2021"
+    technik: "Öl"
+    masse: "71 × 51 cm"
+    bereich: malerei
+    platz: auswahl
+    bilder: [simonetta.jpg]
+    alt: "Zwei Frauenfiguren in türkisem Wasser mit einer Muschel"
+  - id: stephansdom
+    titel: "Stephansdom im Haas-Haus"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "38,5 × 27,6 cm"
+    bereich: malerei
+    platz: auswahl
+    bilder: [stephansdom.jpg]
+    alt: "Der Stephansdom spiegelt sich in der Glasfassade des Haas-Hauses"
+  - id: wolken
+    titel: "Wolken"
+    jahr: "2015"
+    technik: "Öl"
+    bereich: malerei
+    platz: auswahl
+    bilder: [wolken.jpg]
+    alt: "Helle Wolken vor blauem Himmel"
+
+  - id: autowrack
+    titel: "Autowrack"
+    jahr: "1974"
+    technik: "Radierung"
+    bereich: grafik
+    platz: zeitreise
+    bilder: [autowrack.jpg]
+    alt: "Ein altes Auto in Rotbraun"
+  - id: triptychon
+    titel: "Triptychon Abend · Mittag · Morgen"
+    jahr: "1978–80"
+    technik: "Öl auf Leinwand"
+    masse: "je 72 × 99,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [abend.jpg, mittag.jpg, morgen.jpg]
+    alt: "Drei gerahmte Tafeln: liegende Figur, Taube über Tuch, Meer"
+  - id: arma1
+    titel: "Arma virumque cano I"
+    jahr: "1981–82"
+    technik: "Öl auf Leinwand"
+    masse: "100 × 134 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [arma1.jpg]
+    alt: "Reiter und Pferde unter einem feurigen Himmel"
+  - id: kornfeld
+    titel: "Kornfeld im Gegenlicht"
+    jahr: "1987"
+    technik: "Aquarell"
+    masse: "37,9 × 26,9 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [kornfeld.jpg]
+    alt: "Goldgelbes Kornfeld"
+  - id: daecher
+    titel: "Über den verschneiten Dächern Wiens"
+    jahr: "1991"
+    technik: "Aquarell"
+    masse: "39 × 27,6 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [daecher.jpg]
+    alt: "Verschneite Dächer unter grauem Himmel"
+  - id: canale
+    titel: "Canale Grande"
+    jahr: "1996"
+    technik: "Aquarell"
+    masse: "39,3 × 27 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [canale.jpg]
+    alt: "Palazzi am Canale Grande in Venedig"
+  - id: schrei
+    titel: "Der Schrei"
+    jahr: "2020"
+    technik: ""   # offen: Technik mit Ulf klären
+    bereich: malerei
+    platz: zeitreise
+    bilder: [schrei.jpg]
+    alt: "Gemälde Der Schrei"
+  - id: makrelen
+    titel: "Makrelen"
+    jahr: "2021"
+    technik: "Öl"
+    masse: "44 × 37,5 cm"
+    bereich: malerei
+    platz: auswahl
+    bilder: [makrelen.jpg]
+    alt: "Makrelen"
+  - id: februar
+    titel: "24. Februar"
+    jahr: "2023"
+    technik: "Öl"
+    masse: "51 × 36,5 cm"
+    bereich: malerei
+    platz: zeitreise
+    bilder: [februar.jpg]
+    alt: "Gemälde 24. Februar"

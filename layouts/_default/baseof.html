@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · Ulf Seidl{{ end }}</title>
+{{- $desc := .Params.description | default site.Params.beschreibung }}
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · Ulf Seidl{{ end }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ "werke/held.jpg" | absURL }}">
+<meta property="og:locale" content="de_AT">
+<meta name="theme-color" content="#101114">
+<link rel="preload" href="{{ "fonts/bodoni-moda-latin-400-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{- $css := resources.Get "css/seite.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- if .IsHome }}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ulf Seidl","jobTitle":"Maler und Grafiker","url":"{{ site.BaseURL }}","address":{"@type":"PostalAddress","addressLocality":"Flachau","addressCountry":"AT"}}</script>
+{{- end }}
+</head>
+<body>
+<div class="licht" aria-hidden="true"></div>
+<a class="sprung" href="#inhalt">Zum Inhalt</a>
+<header class="kopf">
+  <a class="marke" href="{{ "/" | relURL }}">Ulf Seidl</a>
+  <nav aria-label="Hauptmenü">{{ range site.Menus.main }}<a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>{{ end }}</nav>
+</header>
+<main id="inhalt">
+{{ block "main" . }}{{ end }}
+</main>
+<footer class="fuss">
+  <span>© Ulf Seidl · {{ site.Params.ort }}</span>
+  <nav aria-label="Rechtliches"><a href="{{ "/kontakt/" | relURL }}">Kontakt</a><a href="{{ "/impressum/" | relURL }}">Impressum</a><a href="{{ "/datenschutz/" | relURL }}">Datenschutz</a></nav>
+</footer>
+<script>
+// Licht folgt der Maus (nicht am Handy, nicht bei reduzierter Bewegung)
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(pointer:fine)').matches)return;
+var r=document.documentElement;addEventListener('pointermove',function(e){r.style.setProperty('--x',e.clientX+'px');r.style.setProperty('--y',e.clientY+'px')},{passive:true})})();
+</script>
+</body>
+</html>

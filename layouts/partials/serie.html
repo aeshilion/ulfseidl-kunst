@@ -1,0 +1,6 @@
+{{- /* Serie, die immer zusammen hängt (J. C. Superstar, Mazar-i-Sharif) */ -}}
+{{- $s := . -}}
+<section class="serie teile{{ len $s.bilder }}" aria-label="{{ $s.titel }}">
+  <div class="tafeln">{{ range $i, $b := $s.bilder }}<img src="{{ printf "werke/%s" $b | relURL }}" alt="{{ $s.alt }} (Teil {{ add $i 1 }} von {{ len $s.bilder }})" decoding="async">{{ end }}</div>
+  <p class="zeile"><b>{{ $s.titel }}</b> · {{ $s.jahr }} · {{ $s.technik }}{{ with $s.masse }} · {{ . }}{{ end }}</p>
+</section>
