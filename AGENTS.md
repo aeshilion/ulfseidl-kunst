@@ -7,6 +7,7 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 - **Alle Werke stehen in `data/werke.yaml`.** Ein Eintrag je Werk; die Felder sind oben in der Datei erklärt.
   Reihenfolge in der Datei = Reihenfolge auf der Seite.
 - Bilder liegen in `static/werke/` (JPG, längste Seite höchstens 1600 px, unter 400 KB).
+- Alle Bilder der alten Seite liegen als Vorrat in `archiv/alte-seite/` (nicht veröffentlicht, siehe `archiv/README.md`). Wünscht Ulf ein Werk, zuerst dort suchen.
 - Startseite: Startbild (Jeansjacke) → Kacheln Malerei/Grafik → J. C. Superstar → Einzelwerke (`platz: auswahl`)
   → Mazar-i-Sharif → Zeitreise-Band (`platz: zeitreise`). Unterseiten `/malerei/` und `/grafik/` zeigen alles mit `bereich`.
 - Aussehen: `assets/css/seite.css` (Nachtgalerie: dunkel, Bodoni, Kugelschreiber-Blau `#8ea2ec`).
