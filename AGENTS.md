@@ -15,7 +15,10 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 - Ulfs Kurzanleitung: `anleitung/kurzanleitung.html` (+ PDF).
 - **Sortier-Seite `ulfseidl.at/admin`** (eigene Seite in `static/admin/`: `ordnen.js` Oberfläche, `ordnen-logik.js`
   Logik mit Test `pruefen/ordnen-test.js`; Anmeldung über `admin-auth/`): Ulf zieht dort Bilder zwischen Auswahl und
-  Zeitreise. Veröffentlichen legt einen PR auf einem Zweig `cms/…` an; ist „Seite prüfen“ grün, mergt
+  Zeitreise, legt einzelne neue Bilder an („＋ Neues Bild“: Titel, Jahr, Technik, Maße, Malerei/Grafik; der Browser
+  verkleinert auf 1400 px / < 380 KB und legt die Datei unter `static/werke/<id>.jpg` ab) und nimmt Werke von der Seite
+  (nur der Block in `werke.yaml` fällt weg, die Bilddatei bleibt – zurückholen = Block wieder einfügen, Skill
+  `rueckgaengig`). Mehrteilige Werke, Serien, Startbild und Texte bleiben Sache von Claude. Veröffentlichen legt einen PR auf einem Zweig `cms/…` an; ist „Seite prüfen“ grün, mergt
   `.github/workflows/admin-automerge.yml` ihn und veröffentlicht. Die Seite verschiebt nur ganze Werk-Blöcke und ändert
   die Zeile `platz:` – Felder bitte immer im Muster der Datei (`  - id:` beginnt einen Block, Felder mit 4 Leerzeichen),
   sonst lehnt die Sortier-Seite die Datei ab. Feldbeschreibung: `doku/werke-felder.md`.

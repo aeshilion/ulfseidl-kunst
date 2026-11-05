@@ -12,6 +12,7 @@
 <header class="leiste">
   <div class="name">Bilder ordnen <small>ulfseidl.at</small></div>
   <div class="knoepfe">
+    <button id="neu-knopf" type="button" hidden>＋ Neues Bild</button>
     <button id="vorher" type="button" hidden>Vorherigen Stand holen</button>
     <button id="zuruecksetzen" type="button" hidden>Änderungen verwerfen</button>
     <button id="veroeffentlichen" class="haupt" type="button" disabled>Veröffentlichen</button>
@@ -28,7 +29,7 @@
 </section>
 
 <main id="arbeit" hidden>
-  <p class="hilfe"><span class="maus">Bild anfassen und an die neue Stelle ziehen – oder einmal anklicken und die Knöpfe unten benützen.</span><span class="finger">Bild antippen und die Knöpfe unten benützen.</span> Wenn alles passt: oben rechts „Veröffentlichen“.</p>
+  <p class="hilfe"><span class="maus">Bild anfassen und an die neue Stelle ziehen – oder einmal anklicken und die Knöpfe unten benützen.</span><span class="finger">Bild antippen und die Knöpfe unten benützen.</span> Neues Bild: oben „＋ Neues Bild“. Wenn alles passt: oben rechts „Veröffentlichen“.</p>
   <div id="serie-jc" class="serie"></div>
   <section class="bereich" data-platz="auswahl">
     <h2>Auswahl <small>groß auf der Startseite</small></h2>
@@ -48,8 +49,39 @@
   <button type="button" data-tu="nach">nach rechts →</button>
   <button type="button" data-tu="ende">ans Ende ⇥</button>
   <button type="button" data-tu="wechseln" id="wechseln"></button>
+  <button type="button" data-tu="entfernen" class="gefahr">Von der Seite nehmen</button>
   <button type="button" data-tu="fertig" class="leise">✕ Auswahl aufheben</button>
 </div>
+
+<dialog id="neu-dialog" class="neu">
+  <form method="dialog" id="neu-form">
+    <h2>Neues Bild</h2>
+    <label class="ablage" id="ablage">
+      <input type="file" id="neu-datei" accept="image/jpeg,image/png,image/webp" hidden>
+      <img id="neu-vorschau" alt="" hidden>
+      <span id="ablage-text">Foto hierher ziehen<br><small>oder hier klicken und auswählen</small></span>
+    </label>
+    <p id="neu-meldung" class="meldung" hidden></p>
+    <label class="feldname">Titel <input id="neu-titel" required autocomplete="off"></label>
+    <div class="zwei">
+      <label class="feldname">Jahr <input id="neu-jahr" autocomplete="off" placeholder="z. B. 2025"></label>
+      <label class="feldname">Maße <input id="neu-masse" autocomplete="off" placeholder="z. B. 50 × 70 cm"></label>
+    </div>
+    <label class="feldname">Technik <input id="neu-technik" autocomplete="off" placeholder="z. B. Öl auf Leinwand"></label>
+    <fieldset class="wahl"><legend>Seite</legend>
+      <label><input type="radio" name="bereich" value="malerei"> Malerei</label>
+      <label><input type="radio" name="bereich" value="grafik"> Grafik</label>
+    </fieldset>
+    <fieldset class="wahl"><legend>Wohin auf der Startseite</legend>
+      <label><input type="radio" name="platz" value="zeitreise" checked> Zeitreise</label>
+      <label><input type="radio" name="platz" value="auswahl"> Auswahl (groß oben)</label>
+    </fieldset>
+    <div class="unten">
+      <button type="button" id="neu-abbrechen" class="leise">Abbrechen</button>
+      <button type="submit" id="neu-ok" class="haupt gross" disabled>Hinzufügen</button>
+    </div>
+  </form>
+</dialog>
 
 <script src="ordnen-logik.js"></script>
 <script src="ordnen.js"></script>

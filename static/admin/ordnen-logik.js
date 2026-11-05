@@ -11,7 +11,7 @@
 
   function feld(block, name) {
     var m = block.match(new RegExp("^    " + name + ': "?(.*?)"?$', "m"));
-    return m ? m[1].replace(/\\"/g, '"') : "";
+    return m ? m[1].replace(/\\(["\\])/g, "$1") : "";
   }
 
   function liste(block, name) {
@@ -61,24 +61,69 @@
     return { titel: feld(m[1], "titel"), bilder: liste(m[1], "bilder") };
   }
 
-  // ordnung: [{ id, platz }] in neuer Reihenfolge, Auswahl zuerst egal – Reihenfolge = Reihenfolge in der Datei.
-  function schreiben(text, ordnung) {
+  // ordnung: [{ id, platz }] in neuer Reihenfolge – Reihenfolge = Reihenfolge in der Datei.
+  // extra (freiwillig): { neu: { id: blocktext }, entfernt: [id] } – neue Werke stehen in ordnung,
+  // entfernte nicht. Die Datei muss genau die Werke enthalten, die die Seite geladen hat (sonst ANDERS).
+  function schreiben(text, ordnung, extra) {
     var d = lesen(text);
+    var neuBl = (extra && extra.neu) || {}, entfernt = (extra && extra.entfernt) || [];
     var nachId = {};
     d.bloecke.forEach(function (b) { nachId[b.id] = b; });
-    if (ordnung.length !== d.bloecke.length) throw new Error("ANDERS: Zahl der Werke hat sich geändert");
+    var weg = {};
+    entfernt.forEach(function (id) {
+      if (!nachId[id] || weg[id]) throw new Error("ANDERS: entferntes Werk " + id + " unbekannt");
+      weg[id] = true;
+    });
+    var zahlNeu = Object.keys(neuBl).length;
+    if (ordnung.length - zahlNeu + entfernt.length !== d.bloecke.length) throw new Error("ANDERS: Zahl der Werke hat sich geändert");
     var gesehen = {};
-    var neu = ordnung.map(function (o) {
-      var b = nachId[o.id];
-      if (!b || gesehen[o.id]) throw new Error("ANDERS: Werk " + o.id + " unbekannt oder doppelt");
+    var aus = ordnung.map(function (o) {
+      if (gesehen[o.id] || weg[o.id]) throw new Error("ANDERS: Werk " + o.id + " doppelt");
       if (PLAETZE.indexOf(o.platz) < 0) throw new Error("Platz ungültig: " + o.platz);
       gesehen[o.id] = true;
-      return b.text.replace(/^    platz: .*$/m, "    platz: " + o.platz);
+      var t;
+      if (Object.prototype.hasOwnProperty.call(neuBl, o.id)) {
+        if (nachId[o.id]) throw new Error("ANDERS: Werk " + o.id + " gibt es schon");
+        t = neuBl[o.id];
+        if (t.indexOf("  - id: " + o.id + "\n") !== 0) throw new Error("Neuer Block passt nicht zu " + o.id);
+      } else {
+        if (!nachId[o.id]) throw new Error("ANDERS: Werk " + o.id + " unbekannt");
+        t = nachId[o.id].text;
+      }
+      return t.replace(/^    platz: .*$/m, "    platz: " + o.platz);
     });
-    return d.kopf + "\n" + neu.join("\n") + "\n";
+    return d.kopf + "\n" + aus.join("\n") + "\n";
   }
 
-  var api = { lesen: lesen, schreiben: schreiben, serie: serie };
+  function q(s) { return '"' + String(s).replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/[\r\n]+/g, " ") + '"'; }
+
+  function slug(s) {
+    s = String(s).toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss");
+    s = s.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+    return s.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40).replace(/-+$/g, "");
+  }
+
+  // Bildbeschreibung wie bei den übrigen Werken: Aquarell „Titel“, 1990
+  function altText(w) {
+    var a = w.technik && w.technik !== w.titel ? w.technik + " „" + w.titel + "“" : w.titel;
+    return a + (w.jahr ? ", " + w.jahr : "");
+  }
+
+  // w: { id, titel, jahr?, technik?, masse?, bereich, platz, bilder: [datei] }
+  function block(w) {
+    if (!w.id || !String(w.titel || "").trim()) throw new Error("Titel fehlt");
+    if (["malerei", "grafik"].indexOf(w.bereich) < 0) throw new Error("Bereich ungültig: " + w.bereich);
+    if (PLAETZE.indexOf(w.platz) < 0) throw new Error("Platz ungültig: " + w.platz);
+    var z = ["  - id: " + w.id, "    titel: " + q(w.titel.trim())];
+    if (w.jahr) z.push("    jahr: " + q(w.jahr.trim()));
+    if (w.technik) z.push("    technik: " + q(w.technik.trim()));
+    if (w.masse) z.push("    masse: " + q(w.masse.trim()));
+    z.push("    bereich: " + w.bereich, "    platz: " + w.platz,
+           "    bilder: [" + w.bilder.join(", ") + "]", "    alt: " + q(altText(w)));
+    return z.join("\n");
+  }
+
+  var api = { lesen: lesen, schreiben: schreiben, serie: serie, block: block, slug: slug, altText: altText };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else wurzel.Ordnen = api;
 })(this);

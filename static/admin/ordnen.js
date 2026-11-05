@@ -13,6 +13,7 @@
 
   var $ = function (id) { return document.getElementById(id); };
   var token = null, quelltext = null, werke = [], ordnung = [], geladen = [], gewaehlt = null, beschaeftigt = false;
+  var neueWerke = {}, entfernt = [];  // id → { felder, blob }; ids, die von der Seite genommen werden
 
   // ---------- Anzeige ----------
   function status(text, art, mitPunkt) {
@@ -24,7 +25,7 @@
   }
 
   function geaendert() {
-    return JSON.stringify(ordnung) !== JSON.stringify(geladen);
+    return JSON.stringify(ordnung) !== JSON.stringify(geladen) || Object.keys(neueWerke).length > 0 || entfernt.length > 0;
   }
 
   function knoepfe() {
@@ -33,6 +34,7 @@
     $("zuruecksetzen").hidden = !g || beschaeftigt;
     var v = vorherLesen();
     $("vorher").hidden = !v || beschaeftigt || JSON.stringify(v) === JSON.stringify(ordnung);
+    $("neu-knopf").hidden = beschaeftigt || $("arbeit").hidden;
   }
 
   function nachId(id) {
@@ -53,10 +55,11 @@
     var bb = document.createElement("div"); bb.className = "bb";
     w.bilder.forEach(function (b) {
       var img = document.createElement("img");
-      img.src = BILD + b; img.alt = ""; img.loading = "lazy"; img.decoding = "async"; img.draggable = false;
+      img.src = w.vorschau || BILD + b; img.alt = ""; img.loading = "lazy"; img.decoding = "async"; img.draggable = false;
       bb.appendChild(img);
     });
     f.appendChild(bb);
+    if (w.vorschau) f.classList.add("neu-werk");
     var c = document.createElement("figcaption");
     c.textContent = w.titel;
     if (w.jahr) { var j = document.createElement("span"); j.textContent = w.jahr; c.appendChild(j); }
@@ -65,6 +68,9 @@
   }
 
   function zeichnen() {
+    var drin = {};
+    ordnung.forEach(function (o) { drin[o.id] = true; });
+    document.querySelectorAll(".feld .kachel").forEach(function (k) { if (!drin[k.dataset.id]) k.remove(); });
     ["auswahl", "zeitreise"].forEach(function (platz) {
       var feld = document.querySelector('.feld[data-platz="' + platz + '"]');
       var nr = 0;
@@ -81,7 +87,13 @@
     });
     werkzeugZeigen();
     knoepfe();
-    if (!beschaeftigt) merken("ordnen.entwurf", geaendert() ? { basis: JSON.stringify(geladen), ordnung: ordnung } : null);
+    if (!beschaeftigt) entwurfMerken();
+  }
+
+  // Entwurf im Browser: Reihenfolge und Entfernte; neue Bilder nicht (zu groß) – dafür warnt das Schließen
+  function entwurfMerken() {
+    var o = ordnung.filter(function (x) { return !neueWerke[x.id]; });
+    merken("ordnen.entwurf", geaendert() ? { basis: JSON.stringify(geladen), ordnung: o } : null);
   }
 
   function serieZeigen(ziel, s) {
@@ -126,6 +138,14 @@
     if (!gewaehlt) return;
     var i = stelle(gewaehlt), o = ordnung[i], liste = imBereich(o.platz), k = liste.indexOf(o);
     if (was === "fertig") { gewaehlt = null; zeichnen(); return; }
+    if (was === "entfernen") {
+      var w = nachId(o.id);
+      if (!window.confirm("„" + w.titel + "“ von der Seite nehmen?\n\nDas Bild bleibt gespeichert und kann über Claude zurückgeholt werden.")) return;
+      ordnung.splice(i, 1);
+      if (neueWerke[o.id]) { delete neueWerke[o.id]; werke = werke.filter(function (x) { return x.id !== o.id; }); URL.revokeObjectURL(w.vorschau); }
+      else entfernt.push(o.id);
+      gewaehlt = null; zeichnen(); return;
+    }
     if (was === "wechseln") {
       var anderer = o.platz === "auswahl" ? "zeitreise" : "auswahl";
       var erster = imBereich(anderer)[0];
@@ -293,7 +313,13 @@
     var entwurf = lesenMerk("ordnen.entwurf");
     geladen = werke.map(function (b) { return { id: b.id, platz: b.platz }; });
     ordnung = geladen.slice();
-    if (entwurf && entwurf.basis === JSON.stringify(geladen) && Array.isArray(entwurf.ordnung)) ordnung = entwurf.ordnung;
+    neueWerke = {}; entfernt = [];
+    if (entwurf && entwurf.basis === JSON.stringify(geladen) && Array.isArray(entwurf.ordnung)) {
+      ordnung = entwurf.ordnung.filter(function (o) { return nachId(o.id); });
+      var noch = {};
+      ordnung.forEach(function (o) { noch[o.id] = true; });
+      entfernt = geladen.filter(function (o) { return !noch[o.id]; }).map(function (o) { return o.id; });
+    }
     serieZeigen("serie-jc", Ordnen.serie(d.kopf, "jc"));
     serieZeigen("serie-mazar", Ordnen.serie(d.kopf, "mazar"));
     $("anmelden").hidden = true;
@@ -327,32 +353,191 @@
     status("Wird abgeschickt …", "", true);
     var vorher = geladen.slice(), neu = ordnung.slice(), zweig = "cms/ordnen-" + new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14);
     var kopfSha, dateiSha, neuText;
+    var neuIds = Object.keys(neueWerke), weg = entfernt.slice(), mitBildern = neuIds.length > 0 || weg.length > 0;
+    var dateien = {};  // id → Dateiname in static/werke
+    var titel = mitBildern ? "Admin: " + [neuIds.length ? neuIds.length + " neue(s) Bild(er)" : "", weg.length ? weg.length + " von der Seite genommen" : ""].filter(Boolean).join(", ") + ", Reihenfolge" : "Admin: Reihenfolge/Platz geändert";
     offeneAenderung().then(function (pr) {
       if (pr) throw new Error("LAEUFT");
       return gh("/repos/" + REPO + "/git/ref/heads/main");
     }).then(function (ref) {
       kopfSha = ref.object.sha;
+      if (!neuIds.length) return null;
+      return gh("/repos/" + REPO + "/contents/static/werke?ref=" + kopfSha);
+    }).then(function (liste) {
+      // Dateinamen für neue Bilder: nie eine vorhandene Datei überschreiben
+      var belegt = {};
+      (liste || []).forEach(function (x) { belegt[x.name] = true; });
+      neuIds.forEach(function (id) {
+        var name = id + ".jpg", n = 2;
+        while (belegt[name]) name = id + "-" + n++ + ".jpg";
+        belegt[name] = true; dateien[id] = name;
+      });
       return gh("/repos/" + REPO + "/contents/" + DATEI + "?ref=" + kopfSha);
     }).then(function (f) {
       dateiSha = f.sha;
-      neuText = Ordnen.schreiben(b64lesen(f.content), neu);  // wirft ANDERS, wenn sich die Werke inzwischen geändert haben
+      var bloecke = {};
+      neuIds.forEach(function (id) {
+        var x = neueWerke[id].felder;
+        bloecke[id] = Ordnen.block({ id: id, titel: x.titel, jahr: x.jahr, technik: x.technik, masse: x.masse, bereich: x.bereich,
+                                     platz: "zeitreise", bilder: [dateien[id]] });
+      });
+      // wirft ANDERS, wenn sich die Werke inzwischen geändert haben (z. B. über Claude)
+      neuText = mitBildern ? Ordnen.schreiben(b64lesen(f.content), neu, { neu: bloecke, entfernt: weg }) : Ordnen.schreiben(b64lesen(f.content), neu);
       return gh("/repos/" + REPO + "/git/refs", "POST", { ref: "refs/heads/" + zweig, sha: kopfSha });
     }).then(function () {
+      // neue Bilder nacheinander auf den Zweig, dann die Liste
+      return neuIds.reduce(function (p, id) {
+        return p.then(function () { return alsB64(neueWerke[id].blob); }).then(function (inhalt) {
+          return gh("/repos/" + REPO + "/contents/static/werke/" + dateien[id], "PUT", {
+            message: "Admin: neues Bild " + dateien[id], content: inhalt, branch: zweig
+          });
+        });
+      }, Promise.resolve());
+    }).then(function () {
       return gh("/repos/" + REPO + "/contents/" + DATEI, "PUT", {
-        message: "Admin: Reihenfolge/Platz geändert", content: b64schreiben(neuText), sha: dateiSha, branch: zweig
+        message: titel, content: b64schreiben(neuText), sha: dateiSha, branch: zweig
       });
     }).then(function () {
       return gh("/repos/" + REPO + "/pulls", "POST", {
-        title: "Admin: Reihenfolge/Platz geändert", head: zweig, base: "main",
-        body: "Auf ulfseidl.at/admin geordnet. Wird nach grüner Prüfung automatisch veröffentlicht."
+        title: titel, head: zweig, base: "main",
+        body: "Auf ulfseidl.at/admin geändert. Wird nach grüner Prüfung automatisch veröffentlicht." +
+          (neuIds.length ? "\n\nNeu: " + neuIds.map(function (id) { return neueWerke[id].felder.titel + " (" + dateien[id] + ")"; }).join(", ") : "") +
+          (weg.length ? "\n\nVon der Seite genommen (Bilddateien bleiben): " + weg.join(", ") : "")
       });
     }).then(function (pr) {
       merken(MERK_VORHER, vorher);
       merken("ordnen.entwurf", null);
+      neuIds.forEach(function (id) { var w = nachId(id); if (w) w.bilder = [dateien[id]]; });
+      werke = werke.filter(function (w) { return weg.indexOf(w.id) < 0; });
+      neueWerke = {}; entfernt = [];
       geladen = neu.slice();
       quelltext = neuText;
       laufendBeobachten(pr.number, "Wird geprüft … etwa 3 Minuten. Du kannst das Fenster offen lassen.");
     }).catch(function (e) { beschaeftigt = false; fehler(e); });
+  }
+
+  function alsB64(blob) {
+    return new Promise(function (ja, nein) {
+      var r = new FileReader();
+      r.onload = function () { ja(String(r.result).split(",")[1]); };
+      r.onerror = function () { nein(r.error); };
+      r.readAsDataURL(blob);
+    });
+  }
+
+  // ---------- Neues Bild ----------
+  var MAX_KANTE = 1400, MAX_BYTES = 380 * 1024;
+  var neuBlob = null, neuUrl = null;
+
+  function alsJpeg(leinwand, q) {
+    return new Promise(function (ja) { leinwand.toBlob(ja, "image/jpeg", q); });
+  }
+
+  // Foto aufrecht drehen (EXIF), auf höchstens 1400 px verkleinern, unter 380 KB bringen (Prüfung erlaubt 400 KB)
+  function verkleinern(datei) {
+    return createImageBitmap(datei, { imageOrientation: "from-image" }).then(function (bmp) {
+      var kante = MAX_KANTE;
+      function versuch(stufe) {
+        var f = Math.min(1, kante / Math.max(bmp.width, bmp.height));
+        var c = document.createElement("canvas");
+        c.width = Math.round(bmp.width * f); c.height = Math.round(bmp.height * f);
+        var g = c.getContext("2d");
+        g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height);
+        g.drawImage(bmp, 0, 0, c.width, c.height);
+        var qs = [0.86, 0.8, 0.72, 0.64, 0.56, 0.5];
+        return qs.reduce(function (p, q) {
+          return p.then(function (b) { return b && b.size < MAX_BYTES ? b : alsJpeg(c, q); });
+        }, Promise.resolve(null)).then(function (b) {
+          if (b && b.size < MAX_BYTES) return b;
+          if (stufe > 4) throw new Error("ZUGROSS");
+          kante = Math.round(kante * 0.8);
+          return versuch(stufe + 1);
+        });
+      }
+      return versuch(0);
+    });
+  }
+
+  function neuFormularPruefen() {
+    var titel = $("neu-titel").value.trim();
+    var bereich = document.querySelector('#neu-form input[name="bereich"]:checked');
+    $("neu-ok").disabled = !(neuBlob && titel && bereich);
+  }
+
+  function neuMeldung(text) { var m = $("neu-meldung"); m.textContent = text || ""; m.hidden = !text; }
+
+  function neuDateiNehmen(datei) {
+    if (!datei) return;
+    neuMeldung("");
+    if (/heic|heif/i.test(datei.type) || /\.hei[cf]$/i.test(datei.name)) {
+      return neuMeldung("Dieses Foto-Format (HEIC) kann der Browser nicht öffnen. Bitte als JPG sichern – oder das Bild Claude geben.");
+    }
+    $("ablage-text").textContent = "Wird vorbereitet …";
+    verkleinern(datei).then(function (blob) {
+      neuBlob = blob;
+      if (neuUrl) URL.revokeObjectURL(neuUrl);
+      neuUrl = URL.createObjectURL(blob);
+      var v = $("neu-vorschau"); v.src = neuUrl; v.hidden = false;
+      $("ablage-text").hidden = true;
+      if (!$("neu-titel").value) $("neu-titel").focus();
+      neuFormularPruefen();
+    }).catch(function () {
+      neuBlob = null;
+      $("ablage-text").innerHTML = "Foto hierher ziehen<br><small>oder hier klicken und auswählen</small>";
+      neuMeldung("Dieses Bild ließ sich nicht öffnen. Bitte ein JPG-Foto nehmen – oder das Bild Claude geben.");
+      neuFormularPruefen();
+    });
+  }
+
+  function neuOeffnen() {
+    $("neu-form").reset();
+    neuBlob = null; neuUrl = null; neuMeldung("");
+    $("neu-vorschau").hidden = true; $("neu-vorschau").removeAttribute("src");
+    $("ablage-text").hidden = false;
+    $("ablage-text").innerHTML = "Foto hierher ziehen<br><small>oder hier klicken und auswählen</small>";
+    neuFormularPruefen();
+    $("neu-dialog").showModal();
+  }
+
+  function neuUebernehmen() {
+    var felder = {
+      titel: $("neu-titel").value.trim(), jahr: $("neu-jahr").value.trim(), technik: $("neu-technik").value.trim(),
+      masse: $("neu-masse").value.trim(),
+      bereich: document.querySelector('#neu-form input[name="bereich"]:checked').value
+    };
+    var platz = document.querySelector('#neu-form input[name="platz"]:checked').value;
+    var basis = Ordnen.slug(felder.titel + (felder.jahr ? "-" + felder.jahr : "")) || "werk", id = basis, n = 2;
+    while (nachId(id) || entfernt.indexOf(id) >= 0) id = basis + "-" + n++;
+    neueWerke[id] = { felder: felder, blob: neuBlob };
+    werke.push({ id: id, platz: platz, titel: felder.titel, jahr: felder.jahr, bilder: ["neu.jpg"], vorschau: neuUrl, text: "" });
+    // an den Anfang des gewählten Bereichs
+    var erster = imBereich(platz)[0];
+    var o = { id: id, platz: platz };
+    if (erster) ordnung.splice(stelle(erster.id), 0, o);
+    else if (platz === "auswahl") ordnung.unshift(o);
+    else ordnung.push(o);
+    neuBlob = null; neuUrl = null;
+    gewaehlt = id;
+    zeichnen();
+    var el = document.querySelector('.kachel[data-id="' + CSS.escape(id) + '"]');
+    if (el) { el.focus({ preventScroll: true }); el.scrollIntoView({ block: "center", behavior: "smooth" }); }
+    status("„" + felder.titel + "“ ist dazugekommen. Wenn alles passt: oben rechts „Veröffentlichen“.", "gut");
+  }
+
+  function neuEinrichten() {
+    $("neu-knopf").addEventListener("click", neuOeffnen);
+    $("neu-abbrechen").addEventListener("click", function () { $("neu-dialog").close(); });
+    $("neu-datei").addEventListener("change", function (e) { neuDateiNehmen(e.target.files[0]); });
+    var ab = $("ablage");
+    ["dragenter", "dragover"].forEach(function (t) { ab.addEventListener(t, function (e) { e.preventDefault(); ab.classList.add("ziel"); }); });
+    ["dragleave", "drop"].forEach(function (t) { ab.addEventListener(t, function () { ab.classList.remove("ziel"); }); });
+    ab.addEventListener("drop", function (e) { e.preventDefault(); neuDateiNehmen(e.dataTransfer.files[0]); });
+    $("neu-form").addEventListener("input", neuFormularPruefen);
+    $("neu-form").addEventListener("change", neuFormularPruefen);
+    $("neu-form").addEventListener("submit", function (e) {
+      if ($("neu-ok").disabled) { e.preventDefault(); return; }
+      neuUebernehmen();
+    });
   }
 
   // PR offen → gemergt → Deploy (hugo.yml) für den Merge-Stand fertig = online
@@ -457,7 +642,14 @@
     ziehenEinrichten();
     $("anmeldeknopf").addEventListener("click", anmelden);
     $("veroeffentlichen").addEventListener("click", veroeffentlichen);
-    $("zuruecksetzen").addEventListener("click", function () { if (!window.confirm("Alle Änderungen seit dem letzten Veröffentlichen verwerfen?")) return; ordnung = geladen.slice(); gewaehlt = null; merken("ordnen.entwurf", null); zeichnen(); });
+    $("zuruecksetzen").addEventListener("click", function () {
+      if (!window.confirm("Alle Änderungen seit dem letzten Veröffentlichen verwerfen?")) return;
+      Object.keys(neueWerke).forEach(function (id) { var w = nachId(id); if (w && w.vorschau) URL.revokeObjectURL(w.vorschau); });
+      werke = werke.filter(function (w) { return !neueWerke[w.id]; });
+      neueWerke = {}; entfernt = [];
+      ordnung = geladen.slice(); gewaehlt = null; merken("ordnen.entwurf", null); zeichnen();
+    });
+    neuEinrichten();
     $("vorher").addEventListener("click", function () { var v = vorherLesen(); if (v) { ordnung = v; gewaehlt = null; zeichnen(); } });
     // Nur am eigenen Rechner beim Bauen: ?probe lädt eine Probe-Datei statt GitHub (nie auf ulfseidl.at)
     if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]probe/.test(location.search)) {

@@ -59,4 +59,27 @@ body.zieht-gerade,body.zieht-gerade *{cursor:grabbing!important;user-select:none
 
 .werkzeug{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:8px;max-width:calc(100vw - 24px);padding:12px 14px;background:#22252c;border:1px solid var(--blau);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.6)}
 .werkzeug span{font-weight:600;margin-right:6px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gefahr{color:var(--rot);border-color:#5a3a36}
+.gefahr:hover{border-color:var(--rot)}
+.kachel.neu-werk::after{content:"neu";position:absolute;top:12px;right:12px;background:var(--gruen);color:#102014;border-radius:4px;padding:0 6px;font-size:12px;font-weight:600}
+.neu{width:min(620px,calc(100vw - 24px));max-height:calc(100vh - 24px);padding:0;background:var(--flaeche);color:var(--text);border:1px solid #3a3d46;border-radius:16px}
+.neu::backdrop{background:rgba(0,0,0,.7)}
+.neu form{padding:24px 28px;display:flex;flex-direction:column;gap:16px}
+.neu h2{margin:0;font-weight:400;font-size:28px}
+.ablage{display:flex;align-items:center;justify-content:center;min-height:220px;border:2px dashed #4a4d58;border-radius:12px;background:#0c0d10;cursor:pointer;text-align:center;color:var(--leise);font-size:20px;overflow:hidden}
+.ablage.ziel,.ablage:hover{border-color:var(--blau)}
+.ablage img{max-height:300px;max-width:100%;display:block}
+.ablage small{font-size:15px}
+.feldname{display:flex;flex-direction:column;gap:6px;font-size:16px;color:var(--leise)}
+.feldname input{font:inherit;font-size:19px;color:var(--text);background:#0c0d10;border:1px solid #3a3d46;border-radius:8px;padding:10px 12px}
+.feldname input:focus{outline:3px solid var(--blau);outline-offset:1px}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wahl{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.wahl legend{font-size:16px;color:var(--leise);margin-bottom:6px;padding:0}
+.wahl label{display:flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid #3a3d46;border-radius:8px;cursor:pointer;font-size:18px}
+.wahl label:has(input:checked){border-color:var(--blau);background:#262b3d}
+.wahl input{width:20px;height:20px;accent-color:#5b72d6}
+.meldung{margin:0;color:var(--rot)}
+.unten{display:flex;justify-content:space-between;align-items:center}
+@media (max-width:520px){.zwei{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.status .punkt{animation:none}}
