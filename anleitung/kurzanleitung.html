@@ -3,101 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ulfseidl.at – Kurzanleitung</title>
+<title>Deine Seite – so geht's</title>
 <style>
-  @page{size:A4;margin:10mm 13mm}
-  :root{--blau:#3b55c4;--text:#1d1e22;--leise:#5d5f66;--linie:#d9dbe1;--feld:#f3f4f8}
+  @page{size:A4;margin:9mm 12mm}
+  :root{--blau:#3f55b8;--text:#1d1e22;--leise:#5d5f66;--linie:#d9dbe1;--feld:#f3f4f8}
   *{box-sizing:border-box}
-  body{margin:0;background:#fff;color:var(--text);font:14px/1.45 Georgia,"Times New Roman",serif}
-  .blatt{max-width:820px;margin:0 auto;padding:24px 16px}
-  h1{font:400 34px/1.1 Georgia,serif;margin:0}
-  .unter{font:13px system-ui,sans-serif;color:var(--leise);margin:6px 0 18px;letter-spacing:.04em}
-  .raster{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
-  section{border-top:2px solid var(--blau);padding-top:8px;break-inside:avoid}
-  section.breit{grid-column:1/-1}
-  h2{font:600 15px system-ui,sans-serif;margin:0 0 6px;color:var(--blau)}
-  h2 b{display:inline-block;min-width:1.6em}
-  p,li{font:13.5px/1.45 system-ui,sans-serif;margin:0 0 4px}
-  ol,ul{margin:0;padding-left:1.2em}
-  .satz{background:var(--feld);border-left:3px solid var(--blau);padding:5px 9px;margin:4px 0;font:italic 13.5px/1.4 Georgia,serif}
-  .satze{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
-  .knopf{display:inline-block;border:1px solid #1f883d;background:#1f883d;color:#fff;border-radius:5px;padding:0 6px;font:600 12px/1.6 system-ui,sans-serif}
-  code{font:12.5px ui-monospace,monospace;background:var(--feld);padding:0 4px;border-radius:3px}
-  .nein li::marker{content:"✕  ";color:#b42318}
-  .fuss{margin-top:14px;font:12px system-ui,sans-serif;color:var(--leise);border-top:1px solid var(--linie);padding-top:8px}
-  @media (max-width:640px){.raster,.satze{grid-template-columns:1fr}}
-  @media print{.blatt{padding:8px 0}p,li{font-size:12.8px;line-height:1.4}.satz{font-size:12.8px;padding:4px 8px}h1{font-size:30px}.unter{margin-bottom:12px}.raster{gap:8px 20px}.satz{margin:2px 0}.satze{gap:2px 12px}.fuss{margin-top:6px;padding-top:5px}}
+  body{margin:0;background:#fff;color:var(--text);font:17px/1.5 system-ui,-apple-system,sans-serif}
+  .blatt{max-width:760px;margin:0 auto;padding:24px 16px}
+  h1{font:400 38px/1.1 Georgia,"Times New Roman",serif;margin:0}
+  .unter{color:var(--leise);margin:6px 0 22px;font-size:15px}
+  section{border-top:3px solid var(--blau);padding-top:10px;margin:0 0 20px;break-inside:avoid}
+  h2{font:400 25px/1.2 Georgia,serif;margin:0 0 4px}
+  h2 small{font:15px system-ui,sans-serif;color:var(--leise);margin-left:6px}
+  .adresse{font-size:20px;font-weight:600;color:var(--blau);margin:2px 0 10px}
+  ol{margin:0;padding:0;list-style:none;counter-reset:s}
+  ol li{counter-increment:s;position:relative;padding:5px 0 5px 44px;border-bottom:1px solid var(--linie)}
+  ol li:last-child{border-bottom:0}
+  ol li::before{content:counter(s);position:absolute;left:0;top:5px;width:30px;height:30px;border-radius:50%;background:var(--blau);color:#fff;font-weight:600;text-align:center;line-height:30px}
+  li b{font-weight:600}
+  .k{display:inline-block;background:#1a1c21;color:#fff;border-radius:7px;padding:1px 10px;font-size:15px;font-weight:600;white-space:nowrap}
+  .k.haupt{background:var(--blau)}
+  .k.gruen{background:#1f883d}
+  .k.rot{background:#1a1c21;color:#f08a7a}
+  .leise{color:var(--leise);font-size:15px}
+  .satz{background:var(--feld);border-left:4px solid var(--blau);padding:6px 12px;margin:6px 0;font:italic 17px/1.4 Georgia,serif}
+  .nie{margin:0;font-size:16px}
+  .tipps{margin:8px 0 0;font-size:16px}
+  .nie b{color:#b42318}
+  @media print{body{font-size:13.5px;line-height:1.4}.tipps,.nie,p{font-size:13.5px}.leise{font-size:12.5px}.k{font-size:12.5px;padding:0 7px}.blatt{padding:0}h1{font-size:27px}.unter{margin:3px 0 9px;font-size:12.5px}h2{font-size:19px}section{margin-bottom:8px;padding-top:5px}ol li{padding:2px 0 2px 34px}ol li::before{width:22px;height:22px;line-height:22px;top:2px;font-size:12px}.satz{font-size:13.5px;padding:2px 9px;margin:3px 0}.adresse{font-size:16px;margin:0 0 3px}.tipps{margin-top:5px}}
 </style>
 </head>
 <body>
 <div class="blatt">
-  <h1>ulfseidl.at – so pflegst du deine Seite</h1>
-  <p class="unter">Kurzanleitung für Ulf · Stand 05.11.2026</p>
+  <h1>Deine Seite – so geht's</h1>
+  <p class="unter">Für Ulf · ulfseidl.at · Stand 05.11.2026</p>
 
-  <div class="raster">
-    <section>
-      <h2><b>1</b>Starten</h2>
-      <ol>
-        <li>Claude-App öffnen → <b>Code</b> → <b>Neu</b>.</li>
-        <li>Unten <b>Repo</b>: <code>aeshilion/ulfseidl-kunst</code>, Umgebung <b>Default</b>.</li>
-        <li>Für jedes neue Thema eine neue Sitzung.</li>
-        <li>Für die Skischul-Seite <b>ersteschischule.at</b> dasselbe mit Repo <code>aeshilion/ulfseidl-hugo</code>.</li>
-      </ol>
-    </section>
+  <section>
+    <h2>1 Bilder ordnen <small>ohne Claude</small></h2>
+    <p class="adresse">ulfseidl.at/admin</p>
+    <ol>
+      <li><span class="k haupt">Mit GitHub anmelden</span> drücken. Beim ersten Mal noch den grünen Knopf <span class="k gruen">Authorize</span>. Dein Konto heißt <b>ulfseidl54-png</b>. Danach bleibst du 30 Tage angemeldet.</li>
+      <li><b>Verschieben:</b> Bild anfassen und hinziehen – oder einmal anklicken, dann die Knöpfe unten <span class="k">← nach links</span> <span class="k">nach rechts →</span></li>
+      <li><b>Neues Bild:</b> <span class="k">＋ Neues Bild</span> → ins gestrichelte Feld klicken und das Foto auswählen → Titel schreiben → Malerei oder Grafik → <span class="k haupt">Hinzufügen</span></li>
+      <li><b>Bild weg:</b> Bild anklicken → <span class="k rot">Von der Seite nehmen</span>. Es bleibt aufgehoben – Claude holt es dir zurück.</li>
+      <li><b>Fertig?</b> Oben rechts <span class="k haupt">Veröffentlichen</span>. Nach etwa 3 Minuten steht da: <b>Ist online ✓</b></li>
+    </ol>
+    <p class="leise">Vertan? <span class="k">Änderungen verwerfen</span> – solange du noch nicht veröffentlicht hast. Schon veröffentlicht? Oben erscheint <span class="k">Vorherigen Stand holen</span> → wieder <span class="k haupt">Veröffentlichen</span>. Sonst sag es Claude.</p>
+    <p class="leise">iPhone-Foto geht nicht hinein? Gib es einfach Claude (Teil 2). Damit es künftig geht, am iPhone einmal: Einstellungen → Kamera → Formate → <b>Maximale Kompatibilität</b>.</p>
+  </section>
 
-    <section>
-      <h2><b>2</b>Ansehen und online stellen</h2>
-      <ol>
-        <li>Claude zeigt dir ein Bild der Änderung und macht einen <b>Vorschlag</b> (Link zu GitHub).</li>
-        <li>Passt es: im Vorschlag <span class="knopf">Merge pull request</span> → <span class="knopf">Confirm merge</span>.</li>
-        <li>Nach etwa einer Minute ist es auf <b>ulfseidl.at</b>.</li>
-        <li><b>Bilder ordnen ohne Claude:</b> <code>ulfseidl.at/admin</code> → mit GitHub anmelden (Konto <b>ulfseidl54-png</b>, beim ersten Mal „Authorize“ drücken; hält 30 Tage) → Bild anfassen und hinziehen (oder anklicken und die Knöpfe nehmen) → <span class="knopf">Veröffentlichen</span>. Nach etwa 3 Minuten steht dort „Ist online ✓“.</li>
-        <li><b>Neues Bild ohne Claude:</b> dort oben <span class="knopf">＋ Neues Bild</span> → Foto hineinziehen, Titel, Malerei oder Grafik → <span class="knopf">Hinzufügen</span> → <span class="knopf">Veröffentlichen</span>. <b>Bild wegnehmen:</b> Bild anklicken → <span class="knopf">Von der Seite nehmen</span>. Es bleibt gespeichert; Claude holt es jederzeit zurück.</li>
-      </ol>
-    </section>
-
-    <section class="breit">
-      <h2><b>3</b>Einfach schreiben, was du willst – zum Beispiel</h2>
-      <div class="satze">
-        <div class="satz">Nimm „Wolken“ von der Startseite in die Zeitreise.</div>
+  <section>
+    <h2>2 Alles andere <small>mit Claude</small></h2>
+    <ol>
+      <li>Claude-App → <b>Code</b> → <b>Neu</b> → <b>aeshilion/ulfseidl-kunst</b></li>
+      <li>Schreib einfach, was du willst:
         <div class="satz">Bei „Simonetta“ stimmt das Jahr nicht, es ist 2022.</div>
-        <div class="satz">Stell „Golgotha“ als erstes Bild in die Auswahl.</div>
-        <div class="satz">Such im Archiv meine Radierungen und zeig mir eine Auswahl.</div>
-        <div class="satz">Mach eine Seite „Über mich“ mit diesem Text: …</div>
-        <div class="satz">Die Schrift unter den Bildern ist mir zu klein, mach sie größer.</div>
-        <div class="satz">Zeig mir, wie die Startseite am Handy aussieht.</div>
-        <div class="satz">Mach aus den neuen Bildern im Eingang Werke.</div>
-        <div class="satz">Mach die letzte Änderung rückgängig.</div>
-        <div class="satz">Was hat sich in der letzten Woche auf der Seite geändert?</div>
-      </div>
-    </section>
+        <div class="satz">Die Schrift unter den Bildern ist mir zu klein.</div>
+        <div class="satz">Stell „Golgotha“ als erstes Bild nach oben.</div>
+      </li>
+      <li>Claude zeigt dir, wie es aussieht, und gibt dir einen Link. Darauf klicken (GitHub öffnet sich), dort unten: <span class="k gruen">Merge pull request</span> → <span class="k gruen">Confirm merge</span>. Nach etwa 3 Minuten ist es online.</li>
+      <li>Schiefgegangen? Schreib: <i>„Mach das wieder rückgängig.“</i> Es geht nichts verloren.</li>
+    </ol>
+    <p class="leise">Für die Skischul-Seite ersteschischule.at genauso, nur mit <b>aeshilion/ulfseidl-hugo</b>.</p>
+  </section>
 
-    <section>
-      <h2><b>4</b>Neue Bilder hochladen</h2>
-      <ol>
-        <li>Im Browser: <code>github.com/aeshilion/ulfseidl-kunst</code> → Ordner <b>eingang</b>.</li>
-        <li><b>Add file</b> → <b>Upload files</b> → Fotos hineinziehen → <span class="knopf">Commit changes</span>.</li>
-        <li>In Claude schreiben: <i>„Mach aus den neuen Bildern im Eingang Werke.“</i> Claude fragt dich nach Titel, Jahr und Technik.</li>
-      </ol>
-      <p style="margin-top:6px;color:var(--leise)">Gute Fotos: gerade, ohne Rahmen-Schatten, bei Tageslicht. Handyfoto reicht.</p>
-    </section>
+  <section>
+    <h2>3 Aussehen ändern <small>mit Claude – alles ist erlaubt</small></h2>
+    <p>Farben, Schrift, Startbild, Abstände, Reihenfolge der Teile: Du sagst es, Claude baut es. Gefällt es nicht, nimmt Claude es wieder zurück.</p>
+    <div class="satz">Mach den Hintergrund etwas wärmer, nicht so schwarz.</div>
+    <div class="satz">Nimm „Golgotha“ als großes Startbild statt der Jacke.</div>
+    <div class="satz">Zeig mir zuerst zwei Varianten nebeneinander, ich suche aus.</div>
+    <p class="tipps"><b>Tipps:</b> Ein Foto oder Bildschirmfoto von einer Seite, die dir gefällt, sagt mehr als viele Worte – einfach mitschicken. Lieber kleine Schritte: eine Sache, ansehen, dann die nächste. Schreib dazu: <i>„Zeig mir, wie es am Handy aussieht.“</i> Deine Bilder bleiben immer wie sie sind – geändert wird nur der Rahmen drumherum.</p>
+  </section>
 
-    <section>
-      <h2><b>5</b>Etwas ist schiefgegangen</h2>
-      <ul>
-        <li><i>„Mach die letzte Änderung rückgängig.“</i> – Claude holt den alten Stand zurück, du mergst wie in 2.</li>
-        <li>Nichts geht mehr verloren: jeder frühere Stand ist gespeichert.</li>
-      </ul>
-      <h2 style="margin-top:10px"><b>6</b>Bitte nie</h2>
-      <ul class="nein">
-        <li>Passwörter oder Zugangsdaten in Claude eintippen.</li>
-        <li>Fremde Schriften, Videos oder Zähler einbauen (Datenschutz).</li>
-        <li>Die Adresse ulfseidl.at selbst umstellen – das macht Emanuel.</li>
-      </ul>
-    </section>
-  </div>
-
-  <p class="fuss"><b>7</b>&nbsp; Hilfe: Emanuel. Was Claude über deine Seite weiß, steht in <code>AGENTS.md</code> – du musst es nicht lesen.</p>
+  <section>
+    <p class="nie"><b>Bitte nie</b> Passwörter in Claude eintippen. &nbsp;·&nbsp; Fragen? Ruf Emanuel an.</p>
+  </section>
 </div>
 </body>
 </html>
