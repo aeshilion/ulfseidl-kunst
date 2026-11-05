@@ -5,7 +5,7 @@ backend:
   name: github
   repo: aeshilion/ulfseidl-kunst
   branch: main
-  base_url: https://ulfseidl-admin-auth.WORKER-SUBDOMAIN.workers.dev   # OAuth-Vermittler (Cloudflare Worker), siehe admin-auth/README.md
+  base_url: https://ulfseidl-admin-auth.red-sea-0a96.workers.dev   # OAuth-Vermittler (Cloudflare Worker), siehe admin-auth/README.md
   auth_endpoint: auth
   commit_messages:
     update: "Admin: Reihenfolge/Platz geändert"

@@ -4,5 +4,5 @@ compatibility_date = "2026-10-01"
 workers_dev = true
 
 [vars]
-GITHUB_CLIENT_ID = "HIER-CLIENT-ID-DER-OAUTH-APP"
+GITHUB_CLIENT_ID = "Ov23ctuyMEYIQc2sMOVX"
 # GITHUB_CLIENT_SECRET nie hier: `wrangler secret put GITHUB_CLIENT_SECRET`

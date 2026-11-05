@@ -4,14 +4,15 @@
 Client-Secret heraus, das nicht im Browser liegen darf. Dieser kleine Cloudflare Worker hält das Secret.
 Wartung: keine. Kosten: 0 (Cloudflare-Gratisstufe). Betreiber: Emanuel (EAP-Cloudflare-Konto).
 
-## Einrichten (einmalig, Emanuel)
-1. GitHub → Settings → Developer settings → OAuth Apps → New OAuth App (Konto `aeshilion`):
-   - Application name: `ulfseidl.at Admin`
-   - Homepage URL: `https://ulfseidl.at`
-   - Authorization callback URL: `https://ulfseidl-admin-auth.<subdomain>.workers.dev/callback`
-2. Client-ID in `wrangler.toml` eintragen, Client-Secret erzeugen.
-3. `npx wrangler deploy` und `npx wrangler secret put GITHUB_CLIENT_SECRET` (Secret aus 1Password, nie in den Chat).
-4. Worker-Adresse in `static/admin/config.yml` bei `base_url` eintragen.
+## Einrichtung (erledigt 05.11.2026)
+1. GitHub OAuth App „ulfseidl.at Admin“ auf `aeshilion` (Settings → Developer settings → OAuth Apps),
+   Callback `https://ulfseidl-admin-auth.red-sea-0a96.workers.dev/callback`, Ablauf der Zugangs-Tokens an.
+2. Worker `ulfseidl-admin-auth` im Cloudflare-Konto office@ (Account `2e54ca5c…`), Code = `worker.js`,
+   im Dashboard eingefügt (Workers & Pages → ulfseidl-admin-auth → Edit code → Deploy).
+3. Variablen im Dashboard (Settings → Variables and Secrets): `GITHUB_CLIENT_ID` (Text, steht auch in
+   `wrangler.toml`), `GITHUB_CLIENT_SECRET` (Secret). Secret liegt in 1Password „EAP Infrastruktur“ →
+   „ulfseidl.at Admin OAuth“, nie im Chat oder Repo.
+4. Code ändern: `worker.js` hier ändern, dann im Dashboard einfügen und Deploy (oder `wrangler deploy`).
 
 ## Was passiert beim Speichern
 Admin-Seite → Pull Request auf Zweig `cms/…` → „Seite prüfen“ → grün → `.github/workflows/admin-automerge.yml`
