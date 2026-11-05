@@ -31,7 +31,7 @@ a:focus-visible,.band:focus-visible{outline:2px solid var(--blau);outline-offset
 .held{position:relative;margin:0 var(--rand) clamp(16px,3vw,40px)}
 .held img{width:100%;aspect-ratio:1200/628;object-fit:cover}
 .held::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,17,20,.85) 0,rgba(16,17,20,.2) 45%,transparent 70%)}
-.held h1{position:absolute;left:clamp(16px,3vw,48px);bottom:clamp(16px,3vw,48px);z-index:1;margin:0;font:400 clamp(40px,7.5vw,104px)/1 var(--serif)}
+.held h1{position:absolute;left:clamp(16px,3vw,48px);bottom:clamp(16px,3vw,48px);z-index:1;margin:0;font:400 clamp(32px,5vw,72px)/1 var(--serif)}
 .held small{display:block;font:500 clamp(12px,1.3vw,16px) var(--ui);letter-spacing:.2em;text-transform:uppercase;color:#cfd6f5;margin-top:.8em}
 
 /* Kacheln Malerei / Grafik */

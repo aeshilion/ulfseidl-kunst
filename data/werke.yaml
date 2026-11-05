@@ -135,7 +135,7 @@ werke:
   - id: schrei
     titel: "Der Schrei"
     jahr: "2020"
-    technik: ""   # offen: Technik mit Ulf klären
+    technik: "Öl auf Leinwand"
     bereich: malerei
     platz: zeitreise
     bilder: [schrei.jpg]
