@@ -16,7 +16,7 @@ description: Neue Bilder aus dem Ordner eingang/ als Werke auf die Seite bringen
 4. Ablegen in `static/werke/`, Eintrag in `data/werke.yaml` (Felder oben in der Datei; `alt` = kurz, was man sieht).
    Reihenfolge: dort einsortieren, wo Ulf es will; sonst ans Ende der passenden Gruppe.
 5. Originale aus `eingang/` löschen (`README.md` bleibt).
-6. `hugo --gc --minify` muss fehlerfrei laufen. Seite ansehen und Ulf ein Bild davon zeigen.
+6. Skill `seite-pruefen` ausführen (bauen, `pruefen/pruefen.py`, Ulf Computer- und Handy-Bild zeigen).
 7. Pull Request mit kurzem Titel; Ulf sagen: „Im Vorschlag auf **Merge pull request** und **Confirm merge** klicken, nach einer Minute ist es auf ulfseidl.at.“
 
 Feste Regeln aus `AGENTS.md` gelten (J. C. Superstar und Mazar-i-Sharif immer zusammen, nichts von fremden Servern).

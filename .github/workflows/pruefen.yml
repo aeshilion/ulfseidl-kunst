@@ -1,0 +1,26 @@
+# Prüft jeden Vorschlag (Pull Request) und jeden Stand auf main: Seite baut, Bilder klein genug,
+# Beschreibungen da, Serien vollständig, nichts von fremden Servern. Grüner Haken = darf gemergt werden.
+name: Seite prüfen
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.159.1'
+          extended: true
+      - name: Seite bauen
+        run: hugo --gc --minify
+      - name: Prüfen
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 pruefen/pruefen.py

@@ -11,7 +11,7 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 - Startseite: Startbild (Jeansjacke) → Kacheln Malerei/Grafik → J. C. Superstar → Einzelwerke (`platz: auswahl`)
   → Mazar-i-Sharif → Zeitreise-Band (`platz: zeitreise`). Unterseiten `/malerei/` und `/grafik/` zeigen alles mit `bereich`.
 - Aussehen: `assets/css/seite.css` (Nachtgalerie: dunkel, Bodoni, Kugelschreiber-Blau `#8ea2ec`).
-- **Neue Bilder** lädt Ulf auf GitHub in `eingang/` hoch. Ablauf: Skill `neue-bilder` (`.claude/skills/`). Zurücknehmen: Skill `rueckgaengig`.
+- **Neue Bilder** lädt Ulf auf GitHub in `eingang/` hoch. Ablauf: Skill `neue-bilder` (`.claude/skills/`). Zurücknehmen: Skill `rueckgaengig`. Prüfen und zeigen: Skill `seite-pruefen`.
 - Ulfs Kurzanleitung: `anleitung/kurzanleitung.html` (+ PDF).
 - Rechtliches: `content/impressum.md`, `content/datenschutz.md`, `content/kontakt.md`.
 
@@ -22,7 +22,8 @@ Sprich Ulf mit **Du** an, schreib kurz und ohne Fachwörter. Er ist Maler, kein 
 3. Impressum und Datenschutz nur ändern, wenn Ulf es ausdrücklich sagt.
 4. Neues Bild: verkleinern (längste Seite 1600 px, Pillow oder ImageMagick), Dateiname klein, ohne Leerzeichen und Umlaute.
 5. Jedes Bild braucht einen `alt`-Text: kurz, was man sieht.
-6. Vor dem Abschluss bauen: `hugo --gc --minify` muss ohne Fehler durchlaufen.
+6. Vor jedem Vorschlag Skill `seite-pruefen`: bauen, `python3 pruefen/pruefen.py` muss ✓ zeigen, Ulf Bilder (Computer + Handy) zeigen.
+   Dieselbe Prüfung läuft auf GitHub bei jedem Pull Request (`.github/workflows/pruefen.yml`). Nie abschwächen, um grün zu werden.
 7. Änderungen als Pull Request vorschlagen, nicht direkt auf `main`. Wer `main` bekommt, ist sofort online.
 
 ## Online
