@@ -1,7 +1,7 @@
 // Sortier-Seite ulfseidl.at/admin: Bilder ziehen → Veröffentlichen → Pull Request auf cms/… →
 // „Seite prüfen“ grün → admin-automerge.yml mergt und startet den Deploy. Anmeldung über den
 // OAuth-Vermittler (admin-auth/worker.js), Protokoll wie Decap. Kein fremder Code, kein Speicher außer
-// dem Browser dieses Rechners (Anmeldung 8 h, vorheriger Stand).
+// dem Browser dieses Rechners (Anmeldung 30 Tage, vorheriger Stand).
 (function () {
   "use strict";
   var REPO = "aeshilion/ulfseidl-kunst";
@@ -443,7 +443,7 @@
       try { inhalt = JSON.parse(m[2]); } catch (x) { /* leer */ }
       if (m[1] !== "success" || !inhalt.token) return status(inhalt.message || "Anmeldung hat nicht geklappt.", "schlecht");
       token = inhalt.token;
-      merken(MERK_TOKEN, { token: token, bis: Date.now() + 7.5 * 3600 * 1000 });
+      merken(MERK_TOKEN, { token: token, bis: Date.now() + 30 * 24 * 3600 * 1000 });
       laden();
     }
     window.addEventListener("message", antwort);
@@ -457,7 +457,7 @@
     ziehenEinrichten();
     $("anmeldeknopf").addEventListener("click", anmelden);
     $("veroeffentlichen").addEventListener("click", veroeffentlichen);
-    $("zuruecksetzen").addEventListener("click", function () { ordnung = geladen.slice(); gewaehlt = null; merken("ordnen.entwurf", null); zeichnen(); });
+    $("zuruecksetzen").addEventListener("click", function () { if (!window.confirm("Alle Änderungen seit dem letzten Veröffentlichen verwerfen?")) return; ordnung = geladen.slice(); gewaehlt = null; merken("ordnen.entwurf", null); zeichnen(); });
     $("vorher").addEventListener("click", function () { var v = vorherLesen(); if (v) { ordnung = v; gewaehlt = null; zeichnen(); } });
     // Nur am eigenen Rechner beim Bauen: ?probe lädt eine Probe-Datei statt GitHub (nie auf ulfseidl.at)
     if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]probe/.test(location.search)) {

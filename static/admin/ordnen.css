@@ -11,10 +11,12 @@ button:disabled{opacity:.4;cursor:default;border-color:#3a3d46}
 .gross{font-size:20px;padding:16px 28px}
 .leise{background:none}
 
-.leiste{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px;background:rgba(16,17,20,.96);border-bottom:1px solid var(--linie)}
+.kopf{position:sticky;top:0;z-index:20;background:rgba(16,17,20,.97);border-bottom:1px solid var(--linie)}
+.leiste{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px}
 .name{font-size:20px}.name small{color:var(--leise);font-size:14px;margin-left:8px}
 .knoepfe{display:flex;gap:10px}
-.status{margin:0;padding:10px 24px;min-height:44px;font-size:18px}
+.status{margin:0;padding:0 24px 12px;font-size:18px}
+.status:empty{display:none}
 .status.gut{color:var(--gruen)}.status.schlecht{color:var(--rot)}
 .status a{color:var(--blau)}
 .status .punkt{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blau);margin-right:10px;animation:puls 1.2s infinite}
@@ -23,6 +25,9 @@ button:disabled{opacity:.4;cursor:default;border-color:#3a3d46}
 .anmelden{max-width:520px;margin:12vh auto;padding:0 24px;text-align:center}
 .anmelden h1{font-weight:400;font-size:40px;margin:0 0 12px}
 .anmelden p{color:var(--leise);margin:0 0 32px}
+.anmelden .hinweis{margin:24px 0 0;font-size:16px;line-height:1.6}.anmelden .hinweis b{color:var(--text)}
+.hilfe .finger{display:none}
+@media (pointer:coarse){.hilfe .maus{display:none}.hilfe .finger{display:inline}}
 
 main{padding:0 24px 140px}
 .hilfe{color:var(--leise);margin:4px 0 24px}
@@ -54,5 +59,4 @@ body.zieht-gerade,body.zieht-gerade *{cursor:grabbing!important;user-select:none
 
 .werkzeug{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:8px;max-width:calc(100vw - 24px);padding:12px 14px;background:#22252c;border:1px solid var(--blau);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.6)}
 .werkzeug span{font-weight:600;margin-right:6px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.fuss{margin-top:20px}
 @media (prefers-reduced-motion:reduce){.status .punkt{animation:none}}

@@ -8,23 +8,27 @@
 <link rel="stylesheet" href="ordnen.css">
 </head>
 <body>
+<div class="kopf">
 <header class="leiste">
   <div class="name">Bilder ordnen <small>ulfseidl.at</small></div>
   <div class="knoepfe">
-    <button id="zuruecksetzen" type="button" hidden>Zurücksetzen</button>
+    <button id="vorher" type="button" hidden>Vorherigen Stand holen</button>
+    <button id="zuruecksetzen" type="button" hidden>Änderungen verwerfen</button>
     <button id="veroeffentlichen" class="haupt" type="button" disabled>Veröffentlichen</button>
   </div>
 </header>
 <p id="status" class="status" role="status" aria-live="polite"></p>
+</div>
 
 <section id="anmelden" class="anmelden" hidden>
   <h1>Bilder ordnen</h1>
   <p>Hier ordnest du die Bilder auf deiner Startseite: ziehen, loslassen, veröffentlichen.</p>
   <button id="anmeldeknopf" class="haupt gross" type="button">Mit GitHub anmelden</button>
+  <p class="hinweis">Es öffnet sich ein Fenster von GitHub. Dein Konto: <b>ulfseidl54-png</b>.<br>Beim ersten Mal unten auf den grünen Knopf <b>„Authorize“</b> drücken.</p>
 </section>
 
 <main id="arbeit" hidden>
-  <p class="hilfe">Bild anfassen und an die neue Stelle ziehen – oder einmal anklicken und die Knöpfe benützen. Die Seiten Malerei und Grafik folgen derselben Reihenfolge.</p>
+  <p class="hilfe"><span class="maus">Bild anfassen und an die neue Stelle ziehen – oder einmal anklicken und die Knöpfe unten benützen.</span><span class="finger">Bild antippen und die Knöpfe unten benützen.</span> Wenn alles passt: oben rechts „Veröffentlichen“.</p>
   <div id="serie-jc" class="serie"></div>
   <section class="bereich" data-platz="auswahl">
     <h2>Auswahl <small>groß auf der Startseite</small></h2>
@@ -35,17 +39,16 @@
     <h2>Zeitreise <small>alle weiteren Bilder darunter</small></h2>
     <div class="feld" data-platz="zeitreise"></div>
   </section>
-  <p class="fuss"><button id="vorher" type="button" hidden>Vorherigen Stand wiederherstellen</button></p>
 </main>
 
 <div id="werkzeug" class="werkzeug" hidden>
   <span id="werkzeug-titel"></span>
-  <button type="button" data-tu="anfang">⇤ ganz nach vorne</button>
-  <button type="button" data-tu="vor">← früher</button>
-  <button type="button" data-tu="nach">später →</button>
-  <button type="button" data-tu="ende">ganz nach hinten ⇥</button>
+  <button type="button" data-tu="anfang">⇤ an den Anfang</button>
+  <button type="button" data-tu="vor">← nach links</button>
+  <button type="button" data-tu="nach">nach rechts →</button>
+  <button type="button" data-tu="ende">ans Ende ⇥</button>
   <button type="button" data-tu="wechseln" id="wechseln"></button>
-  <button type="button" data-tu="fertig" class="leise">fertig</button>
+  <button type="button" data-tu="fertig" class="leise">✕ Auswahl aufheben</button>
 </div>
 
 <script src="ordnen-logik.js"></script>
