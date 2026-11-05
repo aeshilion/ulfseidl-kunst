@@ -366,8 +366,15 @@
         if (pr.merged) { mergeSha = pr.merge_commit_sha; status("Geprüft ✓ – wird jetzt veröffentlicht …", "", true); return; }
         if (pr.state === "closed") return ende(false, "Hat nicht geklappt. Auf der Seite hat sich nichts verändert.");
         return gh("/repos/" + REPO + "/commits/" + pr.head.sha + "/check-runs").then(function (c) {
-          var rot = (c.check_runs || []).some(function (r) { return r.conclusion === "failure" || r.conclusion === "cancelled"; });
-          if (rot) ende(false, "Hat nicht geklappt. Auf der Seite hat sich nichts verändert. Claude oder Emanuel schauen nach.");
+          var laeufe = c.check_runs || [];
+          var rot = laeufe.some(function (r) { return r.conclusion === "failure" || r.conclusion === "cancelled" || r.conclusion === "timed_out"; });
+          if (rot) return wegraeumen(pr).then(function () {
+            return ende(false, "Hat nicht geklappt. Auf der Seite hat sich nichts verändert. Du kannst es nochmal versuchen; sonst schauen Claude oder Emanuel nach.");
+          });
+          // grün, aber nach 6 Minuten nicht gemergt: Auto-Merge hat abgelehnt
+          var gruen = laeufe.length && laeufe.every(function (r) { return r.status === "completed" && (r.conclusion === "success" || r.conclusion === "skipped" || r.conclusion === "neutral"); });
+          if (gruen && Date.now() - new Date(pr.created_at).getTime() > 6 * 60 * 1000)
+            return ende(false, "Geprüft, aber nicht veröffentlicht. Claude oder Emanuel schließen den alten Vorschlag – sag ihnen kurz Bescheid.");
         });
       });
       Promise.resolve(schritt).then(function (fertig) { if (fertig !== true && beschaeftigt) setTimeout(runde, 10000); })
@@ -393,6 +400,14 @@
       return true;
     }
     runde();
+  }
+
+  // Eigenen roten Vorschlag schließen und den Zweig löschen (nur cms/ordnen-…, nur von dieser Seite angelegt)
+  function wegraeumen(pr) {
+    if (!pr.head || pr.head.ref.indexOf("cms/ordnen-") !== 0) return Promise.resolve();
+    return gh("/repos/" + REPO + "/pulls/" + pr.number, "PATCH", { state: "closed" })
+      .then(function () { return gh("/repos/" + REPO + "/git/refs/heads/" + pr.head.ref, "DELETE"); })
+      .catch(function () { /* bleibt offen – Claude/Emanuel räumen auf */ });
   }
 
   function fehler(e) {

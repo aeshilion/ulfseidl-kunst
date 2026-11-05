@@ -1,7 +1,8 @@
 # Archiv: alle Bilder der alten Seite
 
 Hier liegen die Bilder der alten WordPress-Seite ulfseidl.at (Stand 05.11.2026), ohne doppelte Dateien,
-auf höchstens 1600 px verkleinert. **Dieser Ordner erscheint nicht auf der Webseite** — er ist der Vorrat.
+auf höchstens 1600 px verkleinert. Der Ordner selbst erscheint nicht auf der Webseite. Seit 05.11.2026 sind alle Werke
+daraus (ohne Doppel und Fassungen) als verkleinerte Kopie in `static/werke/` und in der Zeitreise der Startseite.
 
 - `phase1/` — frühe Grafik und Öl, 1973–1984 (Holzschnitt, Linolschnitt, Radierung, Zeichnung)
 - `phase2/` — Aquarelle 1982–1999, Stillleben 1975, Triptychon 1978–80
